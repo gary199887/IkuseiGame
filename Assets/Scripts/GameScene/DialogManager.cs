@@ -70,6 +70,9 @@ public class DialogManager : MonoBehaviour
                     currentIndex = 0;
                     dialog.SetActive(false);
                     buttonFuctions.showButtons();
+                    if (buttonFuctions.effect != null) {
+                        buttonFuctions.changeParameters();
+                    }
                 }
 
                 // skip word counting and just show the full sentence

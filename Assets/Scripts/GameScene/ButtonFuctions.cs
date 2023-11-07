@@ -4,24 +4,29 @@ using UnityEngine;
 
 public class ButtonFuctions : MonoBehaviour
 {
-    [SerializeField] DialogManager dialogManager;
-    [SerializeField] GameObject buttons;
+    [SerializeField] DialogManager dialogManager;   // ダイアログ表示用のマネージャーObj
+    [SerializeField] GameObject buttons;            // ボタン全体、ボタンon/off切り替え用GameObj
+    [SerializeField] GameDirector gameDirector;     // パラメーター変更用GameDirector Obj
+    public Effect effect;
     public void onWateringButtonClicked() {     // 例として水やりボタンがクリックされた時呼び出すメソッド
         closeButtons();
-        string[] msg = { "水やりをした" };
+        effect = new Effect(2, 0, 0, 1, 1);
+        string[] msg = { "水やりをした", effect.toPlusString() };
         dialogManager.showDialog(msg);
     }
 
 
     public void onThrowingButtonClicked() {     // 投げつけるボタンクリックされた時に呼び出すメソッド
         closeButtons();
-        string[] msg = {"投げつけた"};
+        effect = new Effect(-1, 3, 0, -1, -1);
+        string[] msg = {"投げつけた", effect.toPlusString()};
         dialogManager.showDialog(msg);
     }
 
     public void onStudyButtonClicked() {
         closeButtons();
-        string[] msg = {"勉強させた"};
+        effect = new Effect(-1, 0, 2, 0, 0);
+        string[] msg = {"勉強させた", effect.toPlusString()};
         dialogManager.showDialog(msg);
     }
     public void onItemButtonClicked() {        //　アイテム使用ボタンがクリックされた時呼び出すメソッド
@@ -53,4 +58,8 @@ public class ButtonFuctions : MonoBehaviour
         buttons.SetActive(true);
     }
 
+    public void changeParameters() {
+        gameDirector.changeParameter(effect);
+        effect = null;
+    }
 }
