@@ -17,17 +17,24 @@ public class ButtonFuctions : MonoBehaviour
     
     }
     public void onItemButtonClicked() {        //　アイテム使用ボタンがクリックされた時呼び出すメソッド
-    
+        closeButtons();
+        string[] msg = { "アイテムを使用した" };
+        dialogManager.showDialog(msg);
     }
 
-    public void onTalkingButtonClicked()
+    public void onTalkingButtonClicked()    //　会話ボタンがクリックされた時呼び出すメソッド
     {
-        Debug.Log("声をかけるを選択した");
+        closeButtons();
+        string[] msg = { "話しかけた", "メンタルが上がった" };
+        dialogManager.showDialog(msg);
+
     }
 
-    public void onOutingButtonClicked()
+    public void onOutingButtonClicked()     //　会話ボタンがクリックされた時呼び出すメソッド
     {
-        Debug.Log("出かけるを選択した");
+        closeButtons();
+        string[] msg = { "お出かけした" };
+        dialogManager.showDialog(msg);
     }
 
     void closeButtons() { 
