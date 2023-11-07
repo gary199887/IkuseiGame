@@ -4,11 +4,53 @@ using UnityEngine;
 
 public class ButtonFuctions : MonoBehaviour
 {
-    public void onWateringButtonClicked() {     // 例として水やりボタンがクリックされた時呼び出す空メソッド
-        Debug.Log("水やりを選択した");
+    [SerializeField] DialogManager dialogManager;
+    [SerializeField] GameObject buttons;
+    public void onWateringButtonClicked() {     // 例として水やりボタンがクリックされた時呼び出すメソッド
+        closeButtons();
+        string[] msg = { "水やりをした" };
+        dialogManager.showDialog(msg);
     }
 
-    public void onItemButtonClicked() {        //　アイテム使用ボタンがクリックされた時呼び出すメソッド
-    
+
+    public void onThrowingButtonClicked() {     // 投げつけるボタンクリックされた時に呼び出すメソッド
+        closeButtons();
+        string[] msg = {"投げつけた"};
+        dialogManager.showDialog(msg);
     }
+
+    public void onStudyButtonClicked() {
+        closeButtons();
+        string[] msg = {"勉強させた"};
+        dialogManager.showDialog(msg);
+    }
+    public void onItemButtonClicked() {        //　アイテム使用ボタンがクリックされた時呼び出すメソッド
+        closeButtons();
+        string[] msg = { "アイテムを使用した" };
+        dialogManager.showDialog(msg);
+    }
+
+    public void onTalkingButtonClicked()    //　会話ボタンがクリックされた時呼び出すメソッド
+    {
+        closeButtons();
+        string[] msg = { "話しかけた", "メンタルが上がった" };
+        dialogManager.showDialog(msg);
+
+    }
+
+    public void onOutingButtonClicked()     //　会話ボタンがクリックされた時呼び出すメソッド
+    {
+        closeButtons();
+        string[] msg = { "お出かけした" };
+        dialogManager.showDialog(msg);
+    }
+
+    void closeButtons() { 
+        buttons.SetActive(false);
+    }
+
+    public void showButtons() {
+        buttons.SetActive(true);
+    }
+
 }
