@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class ButtonFuctions : MonoBehaviour
 {
+    [SerializeField] DialogManager dialogManager;
+    [SerializeField] GameObject buttons;
     public void onWateringButtonClicked() {     // 例として水やりボタンがクリックされた時呼び出す空メソッド
-        Debug.Log("水やりを選択した");
+        closeButtons();
+        string[] msg = { "水やりをした" };
+        dialogManager.showDialog(msg);
     }
 
+
+    public void onThrowingButtonClicked() {     // 
+    
+    }
     public void onItemButtonClicked() {        //　アイテム使用ボタンがクリックされた時呼び出すメソッド
     
     }
@@ -21,4 +29,13 @@ public class ButtonFuctions : MonoBehaviour
     {
         Debug.Log("出かけるを選択した");
     }
+
+    void closeButtons() { 
+        buttons.SetActive(false);
+    }
+
+    public void showButtons() {
+        buttons.SetActive(true);
+    }
+
 }
