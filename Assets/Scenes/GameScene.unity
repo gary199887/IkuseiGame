@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 116531713}
   - component: {fileID: 116531712}
   m_Layer: 5
-  m_Name: Dialog
+  m_Name: DialogWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -482,14 +482,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1768512109}
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Children: []
+  m_Father: {fileID: 1768512109}
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 927.12, y: 169.79572}
+  m_AnchoredPosition: {x: -992.88, y: -910.20435}
   m_SizeDelta: {x: 735.76, y: 260.7072}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &130390417
@@ -799,12 +798,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 48
+    m_FontSize: 38
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 3
     m_MaxSize: 69
-    m_Alignment: 3
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2099,7 +2098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f5e3f12ae6dbc640bb4a2c5d65b9ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 116531711}
+  dialog: {fileID: 2019239466}
   dialogText: {fileID: 516147626}
   gameDirector: {fileID: 649845583}
   buttonFuctions: {fileID: 1382318807}
@@ -2204,7 +2203,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1382318807}
         m_TargetAssemblyTypeName: ButtonFuctions, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: onThrowingButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2364,7 +2363,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 516147625}
-  m_Father: {fileID: 116531714}
+  - {fileID: 116531714}
+  m_Father: {fileID: 2019239467}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2792,7 +2792,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1382318807}
         m_TargetAssemblyTypeName: ButtonFuctions, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: onStudyButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2840,6 +2840,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013190587}
   m_CullTransparentMesh: 1
+--- !u!1 &2019239466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2019239467}
+  m_Layer: 0
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2019239467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019239466}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1029.26, y: 32.55745, z: -6.258495}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1768512109}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2036969939
 GameObject:
   m_ObjectHideFlags: 0
