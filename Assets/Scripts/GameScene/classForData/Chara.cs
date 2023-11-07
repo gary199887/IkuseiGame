@@ -13,7 +13,7 @@ public class Chara
         hp = 100; 
         power = 0; 
         intelligent = 0; 
-        mental = 0; 
+        mental = 80; 
         friendly = 0;
     }
 }
