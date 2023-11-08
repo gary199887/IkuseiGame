@@ -16,7 +16,6 @@ public class DialogManager : MonoBehaviour
     string[] talks;         // several sentences of the chosen charactor
     int currentIndex;       // current sentence id
     bool skipped;           // used to check if the single sentence has been skipped of not
-    [SerializeField] GameDirector gameDirector;
     [SerializeField] ButtonFuctions buttonFuctions;
 
 
@@ -70,6 +69,9 @@ public class DialogManager : MonoBehaviour
                     currentIndex = 0;
                     dialog.SetActive(false);
                     buttonFuctions.showButtons();
+                    if (buttonFuctions.effect != null) {
+                        buttonFuctions.afterActionDialogClosed();
+                    }
                 }
 
                 // skip word counting and just show the full sentence

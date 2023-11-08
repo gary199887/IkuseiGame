@@ -906,6 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8aa18aae5fc8fee41b04e8d3b3957fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statusText: {fileID: 735981186}
 --- !u!1 &735981184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1801,6 +1802,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogManager: {fileID: 1499883993}
   buttons: {fileID: 1125596726}
+  gameDirector: {fileID: 649845583}
 --- !u!4 &1382318808
 Transform:
   m_ObjectHideFlags: 0
@@ -2203,7 +2205,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1382318807}
         m_TargetAssemblyTypeName: ButtonFuctions, Assembly-CSharp
-        m_MethodName: onThrowingButtonClicked
+        m_MethodName: onStudyButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2792,7 +2794,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1382318807}
         m_TargetAssemblyTypeName: ButtonFuctions, Assembly-CSharp
-        m_MethodName: onStudyButtonClicked
+        m_MethodName: onThrowingButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
