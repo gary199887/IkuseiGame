@@ -24,8 +24,11 @@ public class GameDirector : MonoBehaviour
         
     }
 
-    public void changeParameter(Effect effect) {
-        chara.addEffect(effect);
+    public static void changeParameter(Effect effect) {
+        chara.doEffect(effect);
+    }
+
+    public void revealStatusChangeInUI() {
         statusText.text = chara.getShowingStatus();
     }
 }
