@@ -65,4 +65,8 @@ public class Chara
         string showingStatus = $"HP:\n{hp}\n\n‹Ø—Í\n{power}\n\n’m—Í\n{intelligent}\n\nƒƒ“ƒ^ƒ‹\n{mental}\n";
         return showingStatus;
     }
+
+    public int getHp() {
+        return hp;
+    }
 }
