@@ -12,24 +12,24 @@ public class Chara
     const int minHP = 0;
     const int maxHP = 100;
     const int minPower = 0;
-    const int maxPower = 100;
+    const int maxPower = 999;
     const int minIntelligent = 0;
-    const int maxIntelligent = 100;
+    const int maxIntelligent = 999;
     const int minMental = 0;
-    const int maxMental = 100;
+    const int maxMental = 999;
 
     // 開示しない情報
     int friendly;       // 好感度（初期値0, 上限、下限(マイナス)を決める）
 
-    const int minFriendly = 0;
-    const int maxFriendly = 100;
+    const int minFriendly = -50;
+    const int maxFriendly = 50;
 
 
     public Chara (){        // contructor キャラクタの初期値を決める
         hp = 100; 
-        power = 0; 
-        intelligent = 0; 
-        mental = 80; 
+        power = 100; 
+        intelligent = 100; 
+        mental = 100; 
         friendly = 0;
     }
 

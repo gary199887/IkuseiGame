@@ -8,8 +8,10 @@ public class GameDirector : MonoBehaviour
     public static Chara chara;              // キャラ
     int currentDay;                         // 今の日数（N日目）
     int currentHour;                        // 今の時間（N時(0 ~ 23)）
+    const int maxHour = 23;                 // 時間上限
     const int totalDay = 28;                // 日数上限
     [SerializeField] Text statusText;       // ステータスのテキスト
+    [SerializeField] Text timeText;
     
     void Start()
     {
@@ -17,6 +19,8 @@ public class GameDirector : MonoBehaviour
         currentDay = 1;
         currentHour = 8;
         changeParameter(new Effect());
+        revealStatusInUI();
+        revealTimeUI();
     }
 
     void Update()
@@ -28,7 +32,22 @@ public class GameDirector : MonoBehaviour
         chara.doEffect(effect);
     }
 
-    public void revealStatusChangeInUI() {
+    public void revealStatusInUI() {
         statusText.text = chara.getShowingStatus();
+    }
+    public void revealTimeUI() {
+        timeText.text = getTimeString();
+    }
+
+    string getTimeString() {
+        return $"{currentDay}日目\n{currentHour}時";
+    }
+
+    public void addTime(int hour) {
+        currentHour += hour;
+        if (currentHour > 23) {
+            currentHour -= 24;
+            currentDay++;
+        }
     }
 }
