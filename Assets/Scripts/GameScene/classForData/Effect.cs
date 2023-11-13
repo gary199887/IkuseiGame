@@ -1,5 +1,6 @@
 public class Effect
 {
+    public int time;
     // プレイヤに開示する情報
     public int hp;             // HP
     public int power;          // 筋力
@@ -10,7 +11,8 @@ public class Effect
     public int friendly;       // 好感度
 
     string[] parameterName = { "HP", "筋力", "知力", "メンタル", "好感度" };       // パラメータ名
-    public Effect(int hp = 0, int power = 0, int intelligent = 0, int mental = 0, int friendly = 0) {
+    public Effect(int time = 0,int hp = 0, int power = 0, int intelligent = 0, int mental = 0, int friendly = 0) {
+        this.time = time;
         this.hp = hp;
         this.power = power;
         this.intelligent = intelligent;

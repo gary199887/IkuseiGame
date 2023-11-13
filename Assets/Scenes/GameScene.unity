@@ -907,6 +907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusText: {fileID: 735981186}
+  timeText: {fileID: 1116776173}
 --- !u!1 &735981184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,7 +1308,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: day
+  m_Text: "N\u65E5\u76EE\n10\u6642"
 --- !u!222 &1116776174
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2102,7 +2103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog: {fileID: 2019239466}
   dialogText: {fileID: 516147626}
-  gameDirector: {fileID: 649845583}
   buttonFuctions: {fileID: 1382318807}
 --- !u!4 &1499883994
 Transform:

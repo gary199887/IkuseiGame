@@ -10,7 +10,7 @@ public class ButtonFuctions : MonoBehaviour
     public Effect effect;
     public void onWateringButtonClicked() {     // 例として水やりボタンがクリックされた時呼び出すメソッド
         closeButtons();
-        effect = new Effect(2, 0, 0, 1, 1);
+        effect = new Effect(4, 2, 0, 0, 1, 1);
         GameDirector.changeParameter(effect);
         string[] msg = { "水やりをした", effect.getPlusMsg() , effect.getMinusMsg() };
         dialogManager.showDialog(msg);
@@ -19,7 +19,7 @@ public class ButtonFuctions : MonoBehaviour
 
     public void onThrowingButtonClicked() {     // 投げつけるボタンクリックされた時に呼び出すメソッド
         closeButtons();
-        effect = new Effect(-1, 3, 0, -1, -1);
+        effect = new Effect(4, -1, 3, 0, -1, -1);
         GameDirector.changeParameter(effect);
         string[] msg = {"投げつけた", effect.getPlusMsg(), effect.getMinusMsg() };
         dialogManager.showDialog(msg);
@@ -27,7 +27,7 @@ public class ButtonFuctions : MonoBehaviour
 
     public void onStudyButtonClicked(){        // 勉強させるボタンクリックされた時に呼び出すメソッド
         closeButtons();
-        effect = new Effect(-1, 0, 2, 0, 0);
+        effect = new Effect(4, -1, 0, 2, 0, 0);
         GameDirector.changeParameter(effect);
         string[] msg = {"勉強させた", effect.getPlusMsg(), effect.getMinusMsg() };
         dialogManager.showDialog(msg);
@@ -62,9 +62,11 @@ public class ButtonFuctions : MonoBehaviour
     }
 
     public void afterActionDialogClosed() {
-        gameDirector.revealStatusChangeInUI();
+        gameDirector.revealStatusInUI();
         // GameDirectorに時間の加算を追加予定
-
+        Debug.Log(effect.time);
+        gameDirector.addTime(effect.time);
+        gameDirector.revealTimeUI();
         // effectをnullに戻す
         effect = null;
     }
