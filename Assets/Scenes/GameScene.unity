@@ -908,6 +908,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statusText: {fileID: 735981186}
   timeText: {fileID: 1116776173}
+  dialogManager: {fileID: 1499883993}
+  buttonFuctions: {fileID: 1382318807}
 --- !u!1 &735981184
 GameObject:
   m_ObjectHideFlags: 0

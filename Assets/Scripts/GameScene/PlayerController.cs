@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))       // マウス左ボタンクリック
         {
             Vector3 mousePos = Input.mousePosition;
-            Debug.Log(mousePos);                // マウス位置(Vec3)をlogにプリント
+            //Debug.Log(mousePos);                // マウス位置(Vec3)をlogにプリント
             
 
             GameObject clickedGameObject = null;    // クリックしたGameObject (initialized as null)
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
                 clickedGameObject = hit2d.transform.gameObject;
             }
 
-            Debug.Log(clickedGameObject);   // print out in log
+            //Debug.Log(clickedGameObject);   // print out in log
         }
     }
 }

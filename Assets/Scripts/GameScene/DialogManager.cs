@@ -91,6 +91,7 @@ public class DialogManager : MonoBehaviour
         currentIndex = 0;
         skipped = false;
 
+        buttonFuctions.closeButtons();
         // make dialog UI visible
         dialog.SetActive(true);
     }
