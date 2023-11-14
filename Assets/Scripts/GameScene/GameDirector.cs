@@ -58,7 +58,8 @@ public class GameDirector : MonoBehaviour
                 toEnding();
                 return false;
             }
-            buttonFuctions.effect = new Effect(4);
+            buttonFuctions.effect = new Effect(4, 20);
+            changeParameter(buttonFuctions.effect);
             dialogManager.showDialog(new string[] { "“ú‚ª•Ï‚í‚Á‚½" , "4ŽžŠÔ‹xŒe‚µ‚½..." });
             return true;
         }
