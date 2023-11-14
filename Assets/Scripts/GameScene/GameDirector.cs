@@ -14,7 +14,7 @@ public class GameDirector : MonoBehaviour
     [SerializeField] Text statusText;       // ステータスのテキスト
     [SerializeField] Text timeText;
     [SerializeField] DialogManager dialogManager;
-    [SerializeField] ButtonFuctions buttonFuctions;
+    [SerializeField] ButtonFunctions buttonFuctions;
     
     void Start()
     {
@@ -58,8 +58,8 @@ public class GameDirector : MonoBehaviour
                 toEnding();
                 return false;
             }
-            buttonFuctions.effect = new Effect(4,0,0,0,0,0);
-            dialogManager.showDialog(new string[] { "4時間休憩した..." });
+            buttonFuctions.effect = new Effect(4);
+            dialogManager.showDialog(new string[] { "日が変わった" , "4時間休憩した..." });
             return true;
         }
         
