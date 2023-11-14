@@ -124,7 +124,7 @@ public class ButtonFunctions : MonoBehaviour
             GameDirector.changeParameter(effect);            
 
             // 表示メッセージ（レベルアップしたか）
-            if (lvUpMsg != null) { msg = new string[] { actionMsg, effect.getPlusMsg(), effect.getMinusMsg(), lvUpMsg }; doLvUp = (int)actionWithLv.投げつける; }
+            if (lvUpMsg != null) { msg = new string[] { actionMsg, effect.getPlusMsg(), effect.getMinusMsg(), lvUpMsg }; doLvUp = (int)actionName; }
             else msg = new string[] { actionMsg, effect.getPlusMsg(), effect.getMinusMsg() };
         }
         else    // 行動失敗処理
