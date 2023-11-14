@@ -1,0 +1,26 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "イベント名",
+      "imagePath": "イベント画像パス",
+      "time": 0,
+      "hp": 0,
+      "power": 0,
+      "intelligent": 0,
+      "mental": 0,
+      "friendly": 0
+    },
+    {
+      "id": 2,
+      "title": "イベント2",
+      "imagePath": "./Assets/Image/Event/image.png",
+      "time": 2,
+      "hp": 3,
+      "power": 1,
+      "intelligent": 4,
+      "mental": 1,
+      "friendly": 1
+    }
+  ]
+}
