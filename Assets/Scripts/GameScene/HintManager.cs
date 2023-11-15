@@ -18,7 +18,7 @@ public class HintManager : MonoBehaviour
     // 行動成功率をUIに反映      今の成功率：基礎値20 + キャラHP + 行動レベル(1~5) * 5
     public void successChangeInUI(int hp, Action[] actions) {
         for (int i = 0; i < actions.Length; ++i) {
-            successHint[i].text = $"成功率：{Mathf.Clamp(20 + hp + actions[i].getLv() * 5, 0, 100)}%";
+            successHint[i].text = $"成功率：{Mathf.Clamp(5 + hp + actions[i].getLv() * 5, 0, 100)}%";
         }
     }
 
