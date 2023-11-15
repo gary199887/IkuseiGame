@@ -16,7 +16,8 @@ public class DialogManager : MonoBehaviour
     string[] talks;         // several sentences of the chosen charactor
     int currentIndex;       // current sentence id
     bool skipped;           // used to check if the single sentence has been skipped of not
-    [SerializeField] ButtonFunctions buttonFuctions;
+    [SerializeField] ActionSelector actionSelector;       // 行動選択Obj（ゲーム画面のみ）
+    [SerializeField] ResultDirector resultDirector;         // リザルトディレクター(リザルト画面のみ)
 
 
     private void Start()
@@ -26,7 +27,8 @@ public class DialogManager : MonoBehaviour
         dialog.SetActive(false);
         currentIndex = 0;
         skipped = false;
-
+        if (resultDirector != null)
+            resultDirector.showResultMsg();
     }
 
     private void Update()
@@ -68,9 +70,18 @@ public class DialogManager : MonoBehaviour
                     timeCount = 0;
                     currentIndex = 0;
                     dialog.SetActive(false);
-                    buttonFuctions.showButtons();
-                    if (buttonFuctions.effect != null) {
-                        buttonFuctions.afterActionDialogClosed();
+                    if (actionSelector != null) // ボタンファンクション(現在の画面はゲーム画面である場合)
+                    {
+                        if (GameDirector.gameOver) {    // ゲームオーバー判定
+                            actionSelector.effect = null;      // 影響をクリア
+                            actionSelector.endGame();          // エンディング画面へ遷移する処理
+                            return;
+                        }
+                        actionSelector.showButtons();
+                        if (actionSelector.effect != null)
+                        {
+                            actionSelector.afterActionDialogClosed();
+                        }
                     }
                 }
 
@@ -90,8 +101,10 @@ public class DialogManager : MonoBehaviour
         timeCount = 0;
         currentIndex = 0;
         skipped = false;
-
-        buttonFuctions.closeButtons();
+        if (actionSelector != null)    // ボタンファンクション(現在の画面はゲーム画面である場合)
+        {
+            actionSelector.closeButtons();
+        }
         // make dialog UI visible
         dialog.SetActive(true);
     }
