@@ -15,6 +15,7 @@ public class GameDirector : MonoBehaviour
     [SerializeField] Text timeText;
     [SerializeField] DialogManager dialogManager;
     [SerializeField] ButtonFunctions buttonFuctions;
+    [SerializeField] HintManager hintManager;
     
     void Start()
     {
@@ -31,12 +32,14 @@ public class GameDirector : MonoBehaviour
         
     }
 
-    public static void changeParameter(Effect effect) {
+    public void changeParameter(Effect effect) {
         chara.doEffect(effect);
+        hintManager.showEffectHint(effect);
     }
 
     public void revealStatusInUI() {
         statusText.text = chara.getShowingStatus();
+        hintManager.closeEffectHint();
     }
     public void revealTimeUI() {
         timeText.text = getTimeString();
