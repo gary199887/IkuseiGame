@@ -2182,6 +2182,13 @@ MonoBehaviour:
   buttons: {fileID: 1125596726}
   gameDirector: {fileID: 649845583}
   buttonHintManager: {fileID: 336643757}
+  effect:
+    time: 0
+    hp: 0
+    power: 0
+    intelligent: 0
+    mental: 0
+    friendly: 0
 --- !u!4 &1382318808
 Transform:
   m_ObjectHideFlags: 0
@@ -3505,26 +3512,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2052734262}
-  - component: {fileID: 2052734261}
+  - component: {fileID: 2052734263}
   m_Layer: 0
-  m_Name: EventDataIO
+  m_Name: OutingEventDataIO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2052734261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2052734260}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f01a0f25d79aea458ee0d50555c31b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2052734262
 Transform:
   m_ObjectHideFlags: 0
@@ -3540,3 +3535,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2052734263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2052734260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea3d80808e3ce49458adb4455bcf488d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

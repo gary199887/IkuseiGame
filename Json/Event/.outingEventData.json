@@ -3,6 +3,7 @@
     {
       "id": 1,
       "title": "イベント名",
+      "msg": [ "テスト", "test" ],
       "imagePath": "イベント画像パス",
       "effect": {
         "time": 0,
@@ -16,6 +17,7 @@
     {
       "id": 2,
       "title": "イベント2",
+      "msg": [ "テスト", "test" ],
       "imagePath": "./Assets/Image/Event/image.png",
       "effect": {
         "time": 1,

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class EventManager : MonoBehaviour
+public class OutingEventManager : MonoBehaviour
 {
-    static string filePath = "./Json/Event/.eventData.json";
+    static string filePath = "./Json/Event/.outingEventData.json";
     // jsonとしてデータを保存
-    public static void SaveEvents(EventList data)
+    public static void SaveEvents(OutingEventList data)
     {
-        //if (!File.Exists(filePath))   // ファイルが無ければ生成
+        if (!File.Exists(filePath))   // ファイルが無ければ生成
         {
             string json = JsonUtility.ToJson(data);
             StreamWriter streamWriter = new StreamWriter(filePath, false);
@@ -19,7 +19,7 @@ public class EventManager : MonoBehaviour
         }
     }
     // jsonファイル読み込み
-    public static EventList LoadEvents()
+    public static OutingEventList LoadEvents()
     {
         //filePath = "./Json/Event/.eventData.json";
         if (!File.Exists(filePath)) return null;
@@ -27,6 +27,6 @@ public class EventManager : MonoBehaviour
         string json = rd.ReadToEnd();                           // ファイル内容全て読み込む
         rd.Close();                                             // ファイル閉じる
 
-        return JsonUtility.FromJson<EventList>(json);           // jsonファイルを型に戻して返す
+        return JsonUtility.FromJson<OutingEventList>(json);           // jsonファイルを型に戻して返す
     }
 }
