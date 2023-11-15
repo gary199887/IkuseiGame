@@ -5,7 +5,7 @@ using System.Net;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ButtonFunctions : MonoBehaviour
+public class ActionSelector : MonoBehaviour
 {
     [SerializeField] DialogManager dialogManager;   // ダイアログ表示用のマネージャーObj
     [SerializeField] GameObject buttons;            // ボタン全体、ボタンon/off切り替え用GameObj
@@ -139,5 +139,9 @@ public class ButtonFunctions : MonoBehaviour
         }
         // メッセージをダイアログに表示
         dialogManager.showDialog(msg);
+    }
+
+    public void endGame() {
+        gameDirector.toEnding();
     }
 }
