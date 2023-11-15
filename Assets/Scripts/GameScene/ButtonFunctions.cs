@@ -10,7 +10,7 @@ public class ButtonFunctions : MonoBehaviour
     [SerializeField] DialogManager dialogManager;   // ダイアログ表示用のマネージャーObj
     [SerializeField] GameObject buttons;            // ボタン全体、ボタンon/off切り替え用GameObj
     [SerializeField] GameDirector gameDirector;     // パラメーター変更用GameDirector Obj
-    [SerializeField] ButtonHintManager buttonHintManager;
+    [SerializeField] HintManager hintManager;
     public Effect effect;                           // 行動に起こされた変化
     enum actionWithLv { 投げつける, 勉強させる, 話しかける };      // 行動レベルのある行動名(失敗する可能性がある)
     Action[] actions = {new Action("Throw"), new Action("Study"), new Action("Talk")};  // 行動Lv計算用(投げつけ、勉強、話しかける)
@@ -20,8 +20,8 @@ public class ButtonFunctions : MonoBehaviour
         closeButtons();
         string[] msg;
        
-        effect = new Effect(3, 30, 0, 0, 0, 1);
-        GameDirector.changeParameter(effect);
+        effect = new Effect(5, 30, 0, 0, 0, 1);
+        gameDirector.changeParameter(effect);
         msg = new string[] { "水やりをした", effect.getPlusMsg(), effect.getMinusMsg()};
        
         dialogManager.showDialog(msg);
@@ -68,13 +68,13 @@ public class ButtonFunctions : MonoBehaviour
 
         if (doLvUp > -1) {  // レベルアップしたかどうか
             // アップした行動レベルをUI上に反映
-            buttonHintManager.lvUpInUI(doLvUp, actions[doLvUp].getLv());
+            hintManager.lvUpInUI(doLvUp, actions[doLvUp].getLv());
             // 判断用の変数を-1に戻す
             doLvUp = -1;
         }
 
         // 成功率をUIに反映
-        buttonHintManager.successChangeInUI(GameDirector.chara.getHp(), actions);
+        hintManager.successChangeInUI(GameDirector.chara.getHp(), actions);
 
         // 時間加算  日数経過がある場合はtrue 
         if (!gameDirector.addTime(effect.time))     // 日数が経過しなかった場合（or エンディングに進む場合）
@@ -95,11 +95,11 @@ public class ButtonFunctions : MonoBehaviour
     void doActionWithLv(actionWithLv actionName) {
         string[] msg;           // ダイアログに表示されるメッセージ
         string actionMsg = "";  // 行動別に変わる最初のメッセージ
-        if (getSuccessOrNot(GameDirector.chara.getHp() + 20 + actions[(int)actionName].getLv() * 5))   // キャラのHPに応じて行動成功/失敗判定　20（基礎成功率）+ キャラHP (0 ~ 100)
+        if (getSuccessOrNot(GameDirector.chara.getHp() + 5 + actions[(int)actionName].getLv() * 5))   // キャラのHPに応じて行動成功/失敗判定　5（基礎成功率）+ キャラHP (0 ~ 100) + 行動レベル(1~5) * 5
         {
-            // 行動lvに応じて変化する値(power)が変動  5（基礎値） + 30 x 行動lv(1 ~ 5) / 5
+            // 行動lvに応じて変化する値が変動 30 x 行動lv(1 ~ 5) / 5
             effect = new Effect();
-            effect.time = 3;
+            effect.time = 5;
             effect.hp = -30;
             int changeValue = (int)Mathf.Ceil(30 * ((float)actions[(int)actionName].getLv() / 5));
             switch (actionName) {
@@ -121,7 +121,7 @@ public class ButtonFunctions : MonoBehaviour
             // 行動回数追加、レベルアップチェック
             string lvUpMsg = actions[(int)actionName].doAction();
             // エフェクトのパラメータに対応したキャラステータス変更処理
-            GameDirector.changeParameter(effect);            
+            gameDirector.changeParameter(effect);            
 
             // 表示メッセージ（レベルアップしたか）
             if (lvUpMsg != null) { msg = new string[] { actionMsg, effect.getPlusMsg(), effect.getMinusMsg(), lvUpMsg }; doLvUp = (int)actionName; }
@@ -132,7 +132,7 @@ public class ButtonFunctions : MonoBehaviour
             // 時間経過。体力、好感度減算
             effect = new Effect(3, -20, 0, 0, 0, -2);
             // エフェクトのパラメータに対応したキャラステータス変更処理
-            GameDirector.changeParameter(effect);
+            gameDirector.changeParameter(effect);
             actionMsg = "行動に失敗した";
             // 表示メッセージ
             msg = new string[] { actionMsg, effect.getPlusMsg(), effect.getMinusMsg() };
