@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-using UnityEditorInternal;
-using UnityEditor.Search;
 using UnityEngine.SceneManagement;
 
 public class GameDirector : MonoBehaviour
