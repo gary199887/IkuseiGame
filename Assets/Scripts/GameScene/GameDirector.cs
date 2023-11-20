@@ -1,9 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-using UnityEditorInternal;
-using UnityEditor.Search;
 using UnityEngine.SceneManagement;
 
 public class GameDirector : MonoBehaviour
@@ -87,5 +83,12 @@ public class GameDirector : MonoBehaviour
         Ending ending = new Ending();
         ResultDirector.ending = ending;
         SceneManager.LoadScene("ResultScene");
+    }
+
+    public void debugDayPass()
+    {
+        currentDay = 28;
+        actionSelector.effect = new Effect();
+        dialogManager.showDialog(new string[] { "28“ú–Ú‚ÉƒWƒƒƒ“ƒv‚µ‚½" });
     }
 }

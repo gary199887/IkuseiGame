@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: IkuseiGame
+  companyName: Black Company
+  productName: "2021\u5E74\u5EA6_\u5352\u696D\u5236\u4F5C_The Seed Origin_\u300C\u30D6\u30E9\u30C3\u30AF\u4F01\u696D\u300D"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
