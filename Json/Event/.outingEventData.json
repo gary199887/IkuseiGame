@@ -2,15 +2,15 @@
   "events": [
     {
       "id": 1,
-      "title": "イベント名",
-      "msg": [ "テスト", "test" ],
+      "title": "動物に襲われる",
+      "msg": [ "公園へお散歩しに来た", "動物に襲われてしまった" ],
       "imagePath": "イベント画像パス",
       "effect": {
         "time": 0,
         "hp": 0,
-        "power": 0,
+        "power": 20,
         "intelligent": 0,
-        "mental": 0,
+        "mental": -20,
         "friendly": 0
       }
     },

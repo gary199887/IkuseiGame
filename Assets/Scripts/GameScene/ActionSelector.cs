@@ -45,10 +45,15 @@ public class ActionSelector : MonoBehaviour
         doActionWithLv(actionWithLv.話しかける);
     }
 
-    public void onOutingButtonClicked()     //　会話ボタンがクリックされた時呼び出すメソッド
+    public void onOutingButtonClicked()     //　外出ボタンがクリックされた時呼び出すメソッド
     {
         // イベント発生処理追加予定
-        string[] msg = { "お出かけした" };
+        OutingEventList eventsData = OutingEventManager.LoadEvents();
+        effect = eventsData.events[0].effect;
+        gameDirector.changeParameter(effect);
+        string[] msg1 = eventsData.events[0].msg;
+        string[] msg2 = { effect.getPlusMsg(), effect.getMinusMsg() };
+        var msg = msg1.Concat(msg2).ToArray();  // 配列の結合
         dialogManager.showDialog(msg);
     }
 
