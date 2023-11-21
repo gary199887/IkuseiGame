@@ -9,7 +9,11 @@
 　	
 　22CI0225　清水　航大
 ・担当箇所
-　　　　
+　・企画進行：チームリーダーとして進捗確認やおおまかな役割分担などを担当
+　・企画詳細：https://docs.google.com/document/d/1UAjp33C8GpJop1WZNtoOx-WgMUNJGhtxu2HVPYOClFY/edit?usp=sharing　
+　企画関係のドキュメント作成「育成まとめ」「ステータス・行動」「イベント」　　
+　一部イベントの案出しや詳細決定、仮の数値決定、一部育成結果の案出し
+
 　22CI0226　陳　慕　恒
 ・担当箇所
 	
