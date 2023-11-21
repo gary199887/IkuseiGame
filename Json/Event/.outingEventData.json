@@ -6,8 +6,8 @@
       "msg": [ "公園へお散歩しに来た", "動物に襲われてしまった" ],
       "imagePath": "イベント画像パス",
       "effect": {
-        "time": 0,
-        "hp": 0,
+        "time": 6,
+        "hp": -30,
         "power": 20,
         "intelligent": 0,
         "mental": -20,
@@ -16,16 +16,30 @@
     },
     {
       "id": 2,
-      "title": "イベント2",
-      "msg": [ "テスト", "test" ],
+      "title": "クラシックを聴く",
+      "msg": [ "コンサート会場へ来た", "クラシック音楽を聴いた" ],
       "imagePath": "./Assets/Image/Event/image.png",
       "effect": {
-        "time": 1,
-        "hp": 2,
-        "power": 3,
-        "intelligent": 1,
-        "mental": 2,
-        "friendly": 3
+        "time": 6,
+        "hp": 20,
+        "power": 0,
+        "intelligent": 20,
+        "mental": 20,
+        "friendly": 0
+      }
+    },
+    {
+      "id": 3,
+      "title": "イベント3",
+      "msg": [ "テスト" ],
+      "imagePath": "./Assets/Image/Event/image.png",
+      "effect": {
+        "time": 6,
+        "hp": 0,
+        "power": 10,
+        "intelligent": 10,
+        "mental": 10,
+        "friendly": 0
       }
     }
   ]

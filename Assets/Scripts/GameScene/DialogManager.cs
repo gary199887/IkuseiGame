@@ -18,6 +18,7 @@ public class DialogManager : MonoBehaviour
     bool skipped;           // used to check if the single sentence has been skipped of not
     [SerializeField] ActionSelector actionSelector;       // 行動選択Obj（ゲーム画面のみ）
     [SerializeField] ResultDirector resultDirector;         // リザルトディレクター(リザルト画面のみ)
+    [SerializeField] OutingEventManager outingEventManager;
 
 
     private void Start()
@@ -82,6 +83,10 @@ public class DialogManager : MonoBehaviour
                         {
                             actionSelector.afterActionDialogClosed();
                         }
+                    }
+                    if(outingEventManager != null)
+                    {
+                        outingEventManager.CloseOutingEvent();
                     }
                 }
 

@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OutingEventManager : MonoBehaviour
 {
+    [SerializeField] GameObject outingEvent;
+    [SerializeField] Image eventImage;
+    [SerializeField] Sprite[] eventSprites;
+
     static string filePath = "./Json/Event/.outingEventData.json";
     // jsonとしてデータを保存
     public static void SaveEvents(OutingEventList data)
@@ -22,11 +27,30 @@ public class OutingEventManager : MonoBehaviour
     public static OutingEventList LoadEvents()
     {
         //filePath = "./Json/Event/.eventData.json";
-        if (!File.Exists(filePath)) return null;
-        StreamReader rd = new StreamReader(filePath);           // ファイル読み込み指定
-        string json = rd.ReadToEnd();                           // ファイル内容全て読み込む
-        rd.Close();                                             // ファイル閉じる
+        if (File.Exists(filePath))
+        {
+            StreamReader rd = new StreamReader(filePath);           // ファイル読み込み指定
+            string json = rd.ReadToEnd();                           // ファイル内容全て読み込む
+            rd.Close();                                             // ファイル閉じる
 
-        return JsonUtility.FromJson<OutingEventList>(json);           // jsonファイルを型に戻して返す
+            return JsonUtility.FromJson<OutingEventList>(json);           // jsonファイルを型に戻して返す
+        }
+        return null;
+    }
+
+    private void Start()
+    {
+        outingEvent.SetActive(false);
+    }
+
+    public void ShowOutingEvent(int eventNum)
+    {
+        outingEvent.SetActive(true);
+        eventImage.sprite = eventSprites[eventNum];
+    }
+
+    public void CloseOutingEvent()
+    {
+        outingEvent.SetActive(false);
     }
 }
