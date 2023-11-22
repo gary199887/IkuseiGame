@@ -87,8 +87,8 @@
       ],
       "effect": {
         "time": 0,
-        "hp": -20,
-        "power": 0,
+        "hp": 0,
+        "power": -20,
         "intelligent": 0,
         "mental": 0,
         "friendly": 0
@@ -151,7 +151,7 @@
     },
     {
       "id": 8,
-      "name": "B2",
+      "name": "C2",
       "msg": [
         "C2を通った",
         "ふっ、なんだそのしょぼくれた精神パワーは。",
