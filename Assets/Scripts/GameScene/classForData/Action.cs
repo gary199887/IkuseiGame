@@ -4,7 +4,7 @@ public class Action
     public string name;
     public int times;
     public int lv;
-    public int[] lvUp = { 3, 10, 20, 33};
+    public int[] lvUp = { 4, 8, 12, 16};
 
     public Action(string name) {
         this.name = name;
