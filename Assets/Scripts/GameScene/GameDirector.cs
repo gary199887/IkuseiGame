@@ -35,7 +35,7 @@ public class GameDirector : MonoBehaviour
 
     void Update()
     {
-        
+        CommonFunctions.endGameWithEsc();
     }
 
     public void changeParameter(Effect effect) {

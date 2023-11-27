@@ -17,6 +17,11 @@ public class ResultDirector : MonoBehaviour
         endingRenderer.sprite = endingImages[ending.id];
     }
 
+    private void Update()
+    {
+        CommonFunctions.endGameWithEsc();
+    }
+
     public void showResultMsg() {
         List<string> endMsg = new List<string>();
         endMsg.Add($"{ending.name}Ç…àÁÇ¡ÇΩÅI");

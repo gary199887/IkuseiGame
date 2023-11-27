@@ -92,8 +92,8 @@ public class FixedEventManager : MonoBehaviour
     void doFixedEvent(FixedEvent fixedEvent)
     {
         fixedEvent.happened = true;
-        dialogManager.showDialog(stringAddToLast(fixedEvent.msg, "4時間休憩した..."));
-        actionSelector.effect = fixedEvent.effect.plusEffect(new Effect(4, 20));    // イベントの影響に日付経過の影響を追加
+        dialogManager.showDialog(CommonFunctions.stringAddToLast(fixedEvent.msg, "4時間休憩した..."));    // 固定イベントメッセージ表示(最後に4時間休憩したと文言追加)
+        actionSelector.effect = fixedEvent.effect.plusEffect(new Effect(4, 20));    // イベントの影響に日付経過の影響を追加（4時間経過、HP＋20）
         showEventImg(sprites[fixedEvent.id]);
     }
 
@@ -108,10 +108,4 @@ public class FixedEventManager : MonoBehaviour
         eventImg.gameObject.SetActive(false);
     }
 
-    public string[] stringAddToLast(string[] originalString, string addString)
-    {
-        List<string> result = new List<string>(originalString.ToList<string>());
-        result.Add(addString);
-        return result.ToArray();
-    }
 }
