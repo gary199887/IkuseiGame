@@ -90,4 +90,20 @@ public class Chara
     public int getFriendly() {
         return friendly;
     }
+
+    public int getMaxPower() {
+        return maxPower;
+    }
+
+    public int getMaxIntelligent(){
+        return maxIntelligent;
+    }
+
+    public int getMaxMental(){
+        return maxMental;
+    }
+
+    public int getMaxFriendly(){
+        return maxFriendly;
+    }
 }

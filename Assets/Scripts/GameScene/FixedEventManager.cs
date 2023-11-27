@@ -14,11 +14,13 @@ public class FixedEventManager : MonoBehaviour
     {
         route = -1;
     }
-    public static void setFixedEvent(FixedEventList loadedList) {
+    public static void setFixedEvent(FixedEventList loadedList)
+    {
         fixedEventList = loadedList;
     }
 
-    public void occurFixedEvent(int currentDay) {
+    public void occurFixedEvent(int currentDay)
+    {
         // 何週目の固定イベントを計算
         int thisTime = currentDay / 7;
         Chara chara = new Chara(GameDirector.chara);
@@ -47,12 +49,13 @@ public class FixedEventManager : MonoBehaviour
                 route = 2;
             }
             else
-            { // all equal
-
+            { // all equal (現段階ではひとまず筋力ルートに進む)
+                doFixedEvent(fixedEventList.fixedEvents[0]);
+                route = 0;
             }
         }
         else if (thisTime == 2)
-        { 
+        {
             int upLine = 200; // イベントを決める各数値のライン 
             switch (route)
             {
@@ -76,15 +79,21 @@ public class FixedEventManager : MonoBehaviour
                     break;
             }
         }
-        else{ // 三週目の固定イベント未実装
-
+        else
+        { // 三週目の固定イベント未実装
+            int friendlyUpLine = 50;
+            if (chara.getFriendly() >= friendlyUpLine)
+                doFixedEvent(fixedEventList.fixedEvents[9 + route * 2]);
+            else
+                doFixedEvent(fixedEventList.fixedEvents[10 + route * 2]);
         }
     }
 
-    void doFixedEvent(FixedEvent fixedEvent) {
+    void doFixedEvent(FixedEvent fixedEvent)
+    {
         fixedEvent.happened = true;
-        dialogManager.showDialog(stringAddToLast(fixedEvent.msg, "4時間休憩した..."));
-        actionSelector.effect = fixedEvent.effect.plusEffect(new Effect(4, 20));    // イベントの影響に日付経過の影響を追加
+        dialogManager.showDialog(CommonFunctions.stringAddToLast(fixedEvent.msg, "4時間休憩した..."));    // 固定イベントメッセージ表示(最後に4時間休憩したと文言追加)
+        actionSelector.effect = fixedEvent.effect.plusEffect(new Effect(4, 20));    // イベントの影響に日付経過の影響を追加（4時間経過、HP＋20）
         showEventImg(sprites[fixedEvent.id]);
     }
 
@@ -99,9 +108,4 @@ public class FixedEventManager : MonoBehaviour
         eventImg.gameObject.SetActive(false);
     }
 
-    public string[] stringAddToLast(string[] originalString,string addString) {
-        List<string> result = new List<string>(originalString.ToList<string>());
-        result.Add(addString);
-        return result.ToArray();
-    }
 }

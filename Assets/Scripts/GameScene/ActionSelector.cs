@@ -138,7 +138,7 @@ public class ActionSelector : MonoBehaviour
         else    // 行動失敗処理
         {
             // 時間経過。体力、好感度減算
-            effect = new Effect(3, -20, 0, 0, 0, -2);
+            effect = new Effect(3, -20, 0, 0, 0, 0);
             // エフェクトのパラメータに対応したキャラステータス変更処理
             gameDirector.changeParameter(effect);
             actionMsg = "行動に失敗した";
