@@ -252,6 +252,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogManager: {fileID: 1371891069}
+  endingImages:
+  - {fileID: 21300000, guid: 6a34d08ef826e65408441c9d0f59ea7a, type: 3}
+  - {fileID: 21300000, guid: e9fba633e44213248ad192bc1cf29e1c, type: 3}
+  endingRenderer: {fileID: 1416791219}
 --- !u!1 &1371891068
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,7 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialog: {fileID: 1798948478}
   dialogText: {fileID: 1400983205}
-  buttonFunctions: {fileID: 0}
+  actionSelector: {fileID: 0}
   resultDirector: {fileID: 464184082}
 --- !u!4 &1371891070
 Transform:

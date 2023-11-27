@@ -166,6 +166,114 @@
         "friendly": 0
       },
       "happened": false
+    },
+    {
+      "id": 9,
+      "name": "AA1",
+      "msg": [
+        "AA1を通った",
+        "仲良しマッチョ",
+        "とりまプロテインで乾杯！"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 10,
+        "intelligent": 0,
+        "mental": 0,
+        "friendly": 20
+      },
+      "happened": false
+    },
+    {
+      "id": 10,
+      "name": "AA2",
+      "msg": [
+        "AA2を通った",
+        "仲悪マッチョ",
+        "プロテインだけが仲間"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": -20,
+        "intelligent": 0,
+        "mental": 0,
+        "friendly": -20
+      },
+      "happened": false
+    },
+    {
+      "id": 11,
+      "name": "BB1",
+      "msg": [
+        "BB1を通った",
+        "仲良しインテリ",
+        "憧れの人はスティーブ・ジョブズ"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 10,
+        "mental": 0,
+        "friendly": 20
+      },
+      "happened": false
+    },
+    {
+      "id": 12,
+      "name": "BB2",
+      "msg": [
+        "BB2を通った",
+        "仲悪インテリ",
+        "将来は政治家になりたい、国民から金を巻き上げるぜ！"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": -20,
+        "mental": 0,
+        "friendly": -20
+      },
+      "happened": false
+    },
+    {
+      "id": 13,
+      "name": "CC1",
+      "msg": [
+        "CC1を通った",
+        "仲良しスタ〇ド使い",
+        "スタンドの名はシルバーエクスペリエンス"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 10,
+        "mental": 0,
+        "friendly": 20
+      },
+      "happened": false
+    },
+    {
+      "id": 14,
+      "name": "CC2",
+      "msg": [
+        "CC2を通った",
+        "仲悪スタ〇ド使い",
+        "スタンドの名はクイーンクリムゾン"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": -20,
+        "mental": 0,
+        "friendly": -20
+      },
+      "happened": false
     }
   ]
 }
