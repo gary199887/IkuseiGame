@@ -15,11 +15,10 @@ public class OutingEventDataIO : MonoBehaviour
         ev.id = 1;
         ev.title = "イベント名";
         ev.msg = new string[] { "テスト", "test" };
-        ev.imagePath = "イベント画像パス";
         ev.effect = new Effect();
         eventsData.events.Add(ev);
 
-        ev = new OutingEvent(2, "イベント2", new string[] { "テスト", "test" }, "./Assets/Image/Event/image.png", new Effect(1, 2, 3, 1, 2, 3));
+        ev = new OutingEvent(2, "イベント2", new string[] { "テスト", "test" }, new Effect(1, 2, 3, 1, 2, 3));
         eventsData.events.Add(ev);
 
         OutingEventManager.SaveEvents(eventsData);
@@ -27,6 +26,5 @@ public class OutingEventDataIO : MonoBehaviour
 
         Debug.Log(eventsData.events[1].id);
         Debug.Log(eventsData.events[1].title);
-        Debug.Log(eventsData.events[1].imagePath);
     }
 }

@@ -7,7 +7,6 @@ public class OutingEvent
     public int id;
     public string title;
     public string[] msg;
-    public string imagePath;
     public Effect effect;
 
 
@@ -16,15 +15,13 @@ public class OutingEvent
         this.id = 0;
         this.title = "";
         this.msg = new string[] { "" };
-        this.imagePath = "";
         this.effect = new Effect();
     }
-    public OutingEvent(int id, string title, string[] msg, string imagePath, Effect effect)
+    public OutingEvent(int id, string title, string[] msg, Effect effect)
     {
         this.id = id;
         this.title = title;
         this.msg = msg;
-        this.imagePath = imagePath;
         this.effect = effect;
     }
 }

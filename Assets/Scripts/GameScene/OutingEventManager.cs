@@ -10,7 +10,7 @@ public class OutingEventManager : MonoBehaviour
     [SerializeField] Image eventImage;
     [SerializeField] Sprite[] eventSprites;
 
-    static string filePath = "./Json/Event/.outingEventData.json";
+    static string filePath = "./Json/Event/.outingEventDataTest.json";
     // jsonとしてデータを保存
     public static void SaveEvents(OutingEventList data)
     {
@@ -26,7 +26,7 @@ public class OutingEventManager : MonoBehaviour
     // jsonファイル読み込み
     public static OutingEventList LoadEvents()
     {
-        //filePath = "./Json/Event/.eventData.json";
+        filePath = "./Json/Event/.outingEventData.json";
         if (File.Exists(filePath))
         {
             StreamReader rd = new StreamReader(filePath);           // ファイル読み込み指定

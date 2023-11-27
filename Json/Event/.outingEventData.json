@@ -4,7 +4,6 @@
       "id": 1,
       "title": "動物に襲われる",
       "msg": [ "公園へお散歩しに来た", "動物に襲われてしまった" ],
-      "imagePath": "イベント画像パス",
       "effect": {
         "time": 6,
         "hp": -30,
@@ -18,7 +17,6 @@
       "id": 2,
       "title": "クラシックを聴く",
       "msg": [ "コンサート会場へ来た", "クラシック音楽を聴いた" ],
-      "imagePath": "./Assets/Image/Event/image.png",
       "effect": {
         "time": 6,
         "hp": 20,
@@ -32,7 +30,6 @@
       "id": 3,
       "title": "イベント3",
       "msg": [ "テスト" ],
-      "imagePath": "./Assets/Image/Event/image.png",
       "effect": {
         "time": 6,
         "hp": 0,
