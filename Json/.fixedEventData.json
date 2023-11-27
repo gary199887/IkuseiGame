@@ -1,0 +1,279 @@
+{
+  "fixedEvents": [
+    {
+      "id": 0,
+      "name": "A",
+      "msg": [
+        "Aを通った",
+        "筋力最高",
+        "さらに増加した"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 20,
+        "intelligent": 0,
+        "mental": 0,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 1,
+      "name": "B",
+      "msg": [
+        "Bを通った",
+        "知力最高",
+        "さらに増えた"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 20,
+        "mental": 0,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 2,
+      "name": "C",
+      "msg": [
+        "Cを通った",
+        "鋼のようなメンタル",
+        "さらに強まった"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 0,
+        "mental": 20,
+        "friendly": 0
+      },
+      "happened": false,
+      "trigger": {
+        "parameter": 3,
+        "needed": 0,
+        "happenDay": 7
+      }
+    },
+    {
+      "id": 3,
+      "name": "A1",
+      "msg": [
+        "A1を通った",
+        "ワオー、すごい筋力だね",
+        "筋力がさらに上がった"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 20,
+        "intelligent": 0,
+        "mental": 0,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 4,
+      "name": "A2",
+      "msg": [
+        "A2を通った",
+        "「なーんだ、筋力はそれだけか」",
+        "とキャラが萎えた"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": -20,
+        "intelligent": 0,
+        "mental": 0,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 5,
+      "name": "B1",
+      "msg": [
+        "B1を通った",
+        "おお、かつての大賢者ガランの若い頃のオーラを感じるのう。",
+        "これからも知力を精進するのじゃ。"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 20,
+        "mental": 0,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 6,
+      "name": "B2",
+      "msg": [
+        "B2を通った",
+        "ふむ、、知識の追求はまだまだ足りんようじゃのう。",
+        "目標を見失ったのかい？"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": -20,
+        "mental": 0,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 7,
+      "name": "C1",
+      "msg": [
+        "C1を通った",
+        "na..なんだ！このただならぬ精神エネルギーは？ドドドドドド",
+        "こいつぁあ強力なスタ〇ド使いになるぜ！"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 0,
+        "mental": 20,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 8,
+      "name": "C2",
+      "msg": [
+        "C2を通った",
+        "ふっ、なんだそのしょぼくれた精神パワーは。",
+        "まるで豆腐のような軟弱さだぜ。"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 0,
+        "mental": -20,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 9,
+      "name": "AA1",
+      "msg": [
+        "AA1を通った",
+        "仲良しマッチョ",
+        "とりまプロテインで乾杯！"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 10,
+        "intelligent": 0,
+        "mental": 0,
+        "friendly": 20
+      },
+      "happened": false
+    },
+    {
+      "id": 10,
+      "name": "AA2",
+      "msg": [
+        "AA2を通った",
+        "仲悪マッチョ",
+        "プロテインだけが仲間"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": -20,
+        "intelligent": 0,
+        "mental": 0,
+        "friendly": -20
+      },
+      "happened": false
+    },
+    {
+      "id": 11,
+      "name": "BB1",
+      "msg": [
+        "BB1を通った",
+        "仲良しインテリ",
+        "憧れの人はスティーブ・ジョブズ"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 10,
+        "mental": 0,
+        "friendly": 20
+      },
+      "happened": false
+    },
+    {
+      "id": 12,
+      "name": "BB2",
+      "msg": [
+        "BB2を通った",
+        "仲悪インテリ",
+        "将来は政治家になりたい、国民から金を巻き上げるぜ！"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": -20,
+        "mental": 0,
+        "friendly": -20
+      },
+      "happened": false
+    },
+    {
+      "id": 13,
+      "name": "CC1",
+      "msg": [
+        "CC1を通った",
+        "仲良しスタ〇ド使い",
+        "スタンドの名はシルバーエクスペリエンス"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 10,
+        "mental": 0,
+        "friendly": 20
+      },
+      "happened": false
+    },
+    {
+      "id": 14,
+      "name": "CC2",
+      "msg": [
+        "CC2を通った",
+        "仲悪スタ〇ド使い",
+        "スタンドの名はクイーンクリムゾン"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": -20,
+        "mental": 0,
+        "friendly": -20
+      },
+      "happened": false
+    }
+  ]
+}

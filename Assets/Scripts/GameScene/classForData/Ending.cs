@@ -1,14 +1,18 @@
+using System;
+
 public class Ending
 {
     public int id;
     public string name;
     public string[] description;
+    public bool cleared;
 
-    public Ending(int id = 0, string name = "“ä‚ÌA•¨", string[] description = null) {
+    public Ending(int id = 0, string name = "“ä‚ÌA•¨", string[] description = null, bool cleared = false) {
         this.id = id;
         this.name = name;
         this.description = description;
         if(this.description == null)
             this.description = new string[]{"–ó‚Ì•ª‚©‚ç‚È‚¢‹¥–\‚ÈA•¨‚Å‚ ‚é", "GH", "¶‘ÔŒnƒsƒ‰ƒ~ƒbƒh‚Ì’¸“_‚ğŒN—Õ‚·‚é", "‚â‚ª‚Äl—Ş‚ğ‚àH‚×s‚­‚µ‚½‚Ì‚Å‚ ‚Á‚½"};
+        this.cleared = cleared;
     }
 }

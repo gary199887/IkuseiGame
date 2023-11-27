@@ -14,7 +14,7 @@ public class ActionSelector : MonoBehaviour
     public Effect effect;                           // 行動に起こされた変化
     enum actionWithLv { 投げつける, 勉強させる, 話しかける };      // 行動レベルのある行動名(失敗する可能性がある)
     Action[] actions = {new Action("Throw"), new Action("Study"), new Action("Talk")};  // 行動Lv計算用(投げつけ、勉強、話しかける)
-    int doLvUp = -1;
+    int doLvUp = -1;         // 行動レベルアップする際に使用される（index）
 
     public void onWateringButtonClicked() {     // 水やりボタンがクリックされた時呼び出すメソッド
         closeButtons();
@@ -74,7 +74,8 @@ public class ActionSelector : MonoBehaviour
         }
 
         // 成功率をUIに反映
-        hintManager.successChangeInUI(GameDirector.chara.getHp(), actions);
+        for(int i = 0; i < actions.Length; ++i)
+            hintManager.successChangeInUI(i, getSuccessPercentage(i));
 
         // 時間加算  日数経過がある場合はtrue 
         if (!gameDirector.addTime(effect.time))     // 日数が経過しなかった場合（or エンディングに進む場合）
@@ -91,11 +92,18 @@ public class ActionSelector : MonoBehaviour
         return false;
     }
 
+    // 行動ごとの成功率を取得するメソッド
+    int getSuccessPercentage(int actionId)
+    {
+        // 基礎値　5 + HP + 行動レベル + 好感度
+        return Mathf.Clamp(5 + GameDirector.chara.getHp() + actions[actionId].getLv() * 2 + GameDirector.chara.getFriendly(), 0, 100);
+    }
+
     // 失敗することがある行動をとる時に呼び出すメソッド
     void doActionWithLv(actionWithLv actionName) {
         string[] msg;           // ダイアログに表示されるメッセージ
         string actionMsg = "";  // 行動別に変わる最初のメッセージ
-        if (getSuccessOrNot(GameDirector.chara.getHp() + 5 + actions[(int)actionName].getLv() * 5))   // キャラのHPに応じて行動成功/失敗判定　5（基礎成功率）+ キャラHP (0 ~ 100) + 行動レベル(1~5) * 5
+        if (getSuccessOrNot(getSuccessPercentage((int) actionName)))   // キャラのHPに応じて行動成功/失敗判定　5（基礎成功率）+ キャラHP (0 ~ 100) + 行動レベル(1~5) * 5
         {
             // 行動lvに応じて変化する値が変動 30 x 行動lv(1 ~ 5) / 5
             effect = new Effect();
@@ -130,7 +138,7 @@ public class ActionSelector : MonoBehaviour
         else    // 行動失敗処理
         {
             // 時間経過。体力、好感度減算
-            effect = new Effect(3, -20, 0, 0, 0, -2);
+            effect = new Effect(3, -20, 0, 0, 0, 0);
             // エフェクトのパラメータに対応したキャラステータス変更処理
             gameDirector.changeParameter(effect);
             actionMsg = "行動に失敗した";

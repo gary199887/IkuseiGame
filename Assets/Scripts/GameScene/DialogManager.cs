@@ -72,7 +72,8 @@ public class DialogManager : MonoBehaviour
                     dialog.SetActive(false);
                     if (actionSelector != null) // ボタンファンクション(現在の画面はゲーム画面である場合)
                     {
-                        if (GameDirector.gameOver) {    // ゲームオーバー判定
+                        if (GameDirector.gameOver)
+                        {    // ゲームオーバー判定
                             actionSelector.effect = null;      // 影響をクリア
                             actionSelector.endGame();          // エンディング画面へ遷移する処理
                             return;
@@ -82,6 +83,9 @@ public class DialogManager : MonoBehaviour
                         {
                             actionSelector.afterActionDialogClosed();
                         }
+                    }
+                    else if (resultDirector != null) {      // 現画面がリザルト画面の場合
+                        resultDirector.toTitle();
                     }
                 }
 

@@ -24,7 +24,9 @@ public class PlayerController : MonoBehaviour
                 clickedGameObject = hit2d.transform.gameObject;
             }
 
-            //Debug.Log(clickedGameObject);   // print out in log
+            if (clickedGameObject != null && clickedGameObject.CompareTag("ButtonInTitleScene"))
+                clickedGameObject.GetComponent<MyButton>().onClicked();
+            Debug.Log(clickedGameObject);   // print out in log
         }
     }
 }

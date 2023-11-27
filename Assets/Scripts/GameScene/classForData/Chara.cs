@@ -22,7 +22,7 @@ public class Chara
     int friendly;       // 好感度（初期値0, 上限、下限(マイナス)を決める）
 
     const int minFriendly = -50;
-    const int maxFriendly = 50;
+    const int maxFriendly = 100;
 
 
     public Chara (){        // contructor キャラクタの初期値を決める
@@ -31,6 +31,13 @@ public class Chara
         intelligent = 100; 
         mental = 100; 
         friendly = 0;
+    }
+    public Chara(Chara copyFrom) {
+        hp = copyFrom.hp;
+        power = copyFrom.power;
+        intelligent= copyFrom.intelligent;
+        mental= copyFrom.mental;
+        friendly= copyFrom.friendly;
     }
 
     public void doEffect(Effect effect) {      // 影響したステータスの加算
@@ -68,5 +75,35 @@ public class Chara
 
     public int getHp() {
         return hp;
+    }
+    public int getPower() {
+        return power;
+    }
+    public int getIntelligent() {
+        return intelligent;
+    }
+
+    public int getMental() {
+        return mental;
+    }
+
+    public int getFriendly() {
+        return friendly;
+    }
+
+    public int getMaxPower() {
+        return maxPower;
+    }
+
+    public int getMaxIntelligent(){
+        return maxIntelligent;
+    }
+
+    public int getMaxMental(){
+        return maxMental;
+    }
+
+    public int getMaxFriendly(){
+        return maxFriendly;
     }
 }
