@@ -94,6 +94,10 @@ public class GameDirector : MonoBehaviour
         gameOver = true;
         dialogManager.showDialog(endMsg);
     }
+    public void showStartMsg() {
+        string[] startMsg = new string[] { "The Seedの世界へようこそ" , "ここからは四週間かかって謎の植物を育てるよ", "色々実験して", "28日目終了後のエンディングを見てみましょう" };
+        dialogManager.showDialog(startMsg);
+    }
 
     public void toEnding() {
         // エンディングへ遷移する処理（エンディング選択未実装、仮のエンディングで送ってる）

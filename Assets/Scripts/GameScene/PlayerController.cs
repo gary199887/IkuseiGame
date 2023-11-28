@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
             if (clickedGameObject != null && clickedGameObject.CompareTag("ButtonInTitleScene"))
                 clickedGameObject.GetComponent<MyButton>().onClicked();
-            Debug.Log(clickedGameObject);   // print out in log
+            //Debug.Log(clickedGameObject);   // print out in log
         }
     }
 }
