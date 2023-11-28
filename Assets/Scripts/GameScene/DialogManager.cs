@@ -19,6 +19,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] ActionSelector actionSelector;       // 行動選択Obj（ゲーム画面のみ）
     [SerializeField] ResultDirector resultDirector;         // リザルトディレクター(リザルト画面のみ)
     [SerializeField] OutingEventManager outingEventManager;     // 散歩イベントマネージャー
+    [SerializeField] GameDirector gameDirector;
 
 
     private void Start()
@@ -30,6 +31,8 @@ public class DialogManager : MonoBehaviour
         skipped = false;
         if (resultDirector != null)
             resultDirector.showResultMsg();
+        else if (actionSelector != null)
+            gameDirector.showStartMsg();
     }
 
     private void Update()
@@ -73,7 +76,8 @@ public class DialogManager : MonoBehaviour
                     dialog.SetActive(false);
                     if (actionSelector != null) // ボタンファンクション(現在の画面はゲーム画面である場合)
                     {
-                        if (GameDirector.gameOver) {    // ゲームオーバー判定
+                        if (GameDirector.gameOver)
+                        {    // ゲームオーバー判定
                             actionSelector.effect = null;      // 影響をクリア
                             actionSelector.endGame();          // エンディング画面へ遷移する処理
                             return;
@@ -84,7 +88,10 @@ public class DialogManager : MonoBehaviour
                             actionSelector.afterActionDialogClosed();
                         }
                     }
-                    else if(outingEventManager != null)
+                    else if (resultDirector != null) {      // 現画面がリザルト画面の場合
+                        resultDirector.toTitle();
+                    }
+                    else if (outingEventManager != null)
                     {
                         // 散歩イベントobj非表示処理
                         outingEventManager.CloseOutingEvent();

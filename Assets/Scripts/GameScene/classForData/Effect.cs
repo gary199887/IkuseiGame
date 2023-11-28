@@ -21,6 +21,14 @@ public class Effect
         this.friendly = friendly;
     }
 
+    public Effect(Effect copyFrom) {
+        this.time = copyFrom.time;
+        this.hp = copyFrom.hp;
+        this.power = copyFrom.power;
+        this.intelligent = copyFrom.intelligent;
+        this.mental = copyFrom.mental;
+        this.friendly = copyFrom.friendly;
+    }
     string getChangedMsg(int mode){  // 変動したメッセージを取得(private)    modeが0の場合は上がった数値 、 0以外の場合は下がった数値の判定
         int hasChangedTimes = 0;        // 変動した回数(”と”を入れるため)
         string returnString = "";       // 返す文字列(結果)
@@ -54,6 +62,19 @@ public class Effect
     public string getMinusMsg()
     {     // 減少したパラメータ変更メッセージ
         return getChangedMsg(1);
+    }
+
+    // 両Effectクラスを加算するためのメソッド　
+    public Effect plusEffect(Effect addEffect) {
+        Effect result = new Effect(this);
+        result.time += addEffect.time;
+        result.hp += addEffect.hp;
+        result.power += addEffect.power;
+        result.intelligent += addEffect.intelligent;
+        result.mental += addEffect.mental;
+        result.friendly += addEffect.friendly;
+
+        return result;
     }
 }
    
