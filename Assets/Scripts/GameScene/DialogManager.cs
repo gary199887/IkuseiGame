@@ -91,7 +91,7 @@ public class DialogManager : MonoBehaviour
                     else if (resultDirector != null) {      // 現画面がリザルト画面の場合
                         resultDirector.toTitle();
                     }
-                    else if (outingEventManager != null)
+                    if (outingEventManager != null)
                     {
                         // 散歩イベントobj非表示処理
                         outingEventManager.CloseOutingEvent();
