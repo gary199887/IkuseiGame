@@ -2,10 +2,13 @@
 ・ゲーム名：The Seed: Origin
 ・メンバー
 　22CI0217　黒沼　諒太
-・担当箇所
+・担当箇所:企画として、主にUIやキャラクタなどの見た目や設定を担当
 	
 　22CI0223　三五　誠
 ・担当箇所
+　プログラム方面担当
+　・外出イベントのデータ型設計、処理
+　・UI仮配置
 　	
 　22CI0225　清水　航大
 ・担当箇所
@@ -49,6 +52,15 @@ ESCキー		         		ゲーム終了
 　　　が結構考えさせられたポイントでした。
 =====================================================================================
 ・素材
-　
-	
+IcooonMono
+https://icooon-mono.com/
+BingImageCreator
+https://www.bing.com/create
+いらすとや
+https://www.irasutoya.com/
+みんちりえ
+https://min-chi.material.jp/
+IllustAC
+https://www.ac-illust.com/?gclid=CjwKCAiAvJarBhA1EiwAGgZl0G0BasQNONDNuYWAYTNiT88yIbcnORE4aWFPQP8fq2d_nBgJ3o2PPhoC7woQAvD_BwE
+
  　
