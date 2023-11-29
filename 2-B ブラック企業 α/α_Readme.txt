@@ -49,6 +49,15 @@ ESCキー		         		ゲーム終了
 　　　が結構考えさせられたポイントでした。
 =====================================================================================
 ・素材
-　
-	
+IcooonMono
+https://icooon-mono.com/
+BingImageCreator
+https://www.bing.com/create
+いらすとや
+https://www.irasutoya.com/
+みんちりえ
+https://min-chi.material.jp/
+IllustAC
+https://www.ac-illust.com/?gclid=CjwKCAiAvJarBhA1EiwAGgZl0G0BasQNONDNuYWAYTNiT88yIbcnORE4aWFPQP8fq2d_nBgJ3o2PPhoC7woQAvD_BwE
+
  　
