@@ -11,6 +11,7 @@ public class ActionSelector : MonoBehaviour
     [SerializeField] GameObject buttons;            // ボタン全体、ボタンon/off切り替え用GameObj
     [SerializeField] GameDirector gameDirector;     // パラメーター変更用GameDirector Obj
     [SerializeField] HintManager hintManager;
+    [SerializeField] OutingEventManager outingEventManager;     // 外出イベント用マネージャーobj
     public Effect effect;                           // 行動に起こされた変化
     enum actionWithLv { 投げつける, 勉強させる, 話しかける };      // 行動レベルのある行動名(失敗する可能性がある)
     Action[] actions = {new Action("Throw"), new Action("Study"), new Action("Talk")};  // 行動Lv計算用(投げつけ、勉強、話しかける)
@@ -45,11 +46,20 @@ public class ActionSelector : MonoBehaviour
         doActionWithLv(actionWithLv.話しかける);
     }
 
-    public void onOutingButtonClicked()     //　会話ボタンがクリックされた時呼び出すメソッド
+    public void onOutingButtonClicked()     //　外出ボタンがクリックされた時呼び出すメソッド
     {
         // イベント発生処理追加予定
-        string[] msg = { "お出かけした" };
+        OutingEventList eventsData = OutingEventManager.LoadEvents();
+        int eventNum = Random.Range(0, eventsData.events.Count);    // イベント数に応じてランダム
+        
+        effect = eventsData.events[eventNum].effect;
+        gameDirector.changeParameter(effect);
+
+        string[] msg1 = eventsData.events[eventNum].msg;
+        string[] msg2 = { effect.getPlusMsg(), effect.getMinusMsg() };
+        string[] msg = msg1.Concat(msg2).ToArray();  // 配列の結合
         dialogManager.showDialog(msg);
+        outingEventManager.ShowOutingEvent(eventNum);
     }
 
     // 行動選択ボタンを消す
