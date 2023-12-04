@@ -53,7 +53,7 @@ public class HintManager : MonoBehaviour
         // 数値がプラスである場合
         if (effectValue > 0)
         {
-            text.color = Color.green + new Color(0, -0.3f, 0, 0);   // green(Color(0, 1, 0, 0))だと明るすぎるのでちょっと暗くなるよう調整
+            text.color = Color.green + new Color(0, -0.4f, 0, 0);   // green(Color(0, 1, 0, 0))だと明るすぎるのでちょっと暗くなるよう調整
             text.text = $"+{effectValue}";
         }
         // 数値がマイナスである場合
