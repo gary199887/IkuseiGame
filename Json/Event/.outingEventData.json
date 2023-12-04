@@ -1,42 +1,133 @@
 {
   "events": [
     {
-      "id": 1,
+      "id": 0,
       "title": "動物に襲われる",
       "msg": [ "公園へお散歩しに来た", "動物に襲われてしまった" ],
       "effect": {
         "time": 6,
-        "hp": -30,
-        "power": 20,
+        "hp": 10,
+        "power": 15,
         "intelligent": 0,
-        "mental": -20,
-        "friendly": 0
+        "mental": -15,
+        "friendly": 15
+      }
+    },
+    {
+      "id": 1,
+      "title": "クラシックを聴く",
+      "msg": [ "コンサート会場へ来た", "クラシック音楽を聴いた" ],
+      "effect": {
+        "time": 6,
+        "hp": 30,
+        "power": 0,
+        "intelligent": 15,
+        "mental": 15,
+        "friendly": 15
       }
     },
     {
       "id": 2,
-      "title": "クラシックを聴く",
+      "title": "タバコを落とされる",
+      "msg": [ "テスト" ],
+      "effect": {
+        "time": 6,
+        "hp": 10,
+        "power": -15,
+        "intelligent": -15,
+        "mental": -15,
+        "friendly": 15
+      }
+    },
+    {
+      "id": 3,
+      "title": "他の植物を見る",
       "msg": [ "コンサート会場へ来た", "クラシック音楽を聴いた" ],
       "effect": {
         "time": 6,
         "hp": 20,
         "power": 0,
-        "intelligent": 20,
-        "mental": 20,
-        "friendly": 0
+        "intelligent": 15,
+        "mental": 15,
+        "friendly": 15
       }
     },
     {
-      "id": 3,
-      "title": "イベント3",
+      "id": 4,
+      "title": "川に落ちる",
+      "msg": [ "コンサート会場へ来た", "クラシック音楽を聴いた" ],
+      "effect": {
+        "time": 6,
+        "hp": 30,
+        "power": 15,
+        "intelligent": -15,
+        "mental": -15,
+        "friendly": 15
+      }
+    },
+    {
+      "id": 5,
+      "title": "ボールをかわす",
+      "msg": [ "コンサート会場へ来た", "クラシック音楽を聴いた" ],
+      "effect": {
+        "time": 6,
+        "hp": 20,
+        "power": 15,
+        "intelligent": 0,
+        "mental": 0,
+        "friendly": 15
+      }
+    },
+    {
+      "id": 6,
+      "title": "ミミズに会う",
+      "msg": [ "公園へお散歩しに来た", "動物に襲われてしまった" ],
+      "effect": {
+        "time": 6,
+        "hp": 20,
+        "power": -15,
+        "intelligent": 15,
+        "mental": 0,
+        "friendly": 15
+      }
+    },
+    {
+      "id": 7,
+      "title": "雑誌を拾う",
+      "msg": [ "コンサート会場へ来た", "クラシック音楽を聴いた" ],
+      "effect": {
+        "time": 6,
+        "hp": 20,
+        "power": -15,
+        "intelligent": -15,
+        "mental": 15,
+        "friendly": 15
+      }
+    },
+    {
+      "id": 8,
+      "title": "雨に行き会う",
       "msg": [ "テスト" ],
       "effect": {
         "time": 6,
-        "hp": 0,
-        "power": 10,
-        "intelligent": 10,
-        "mental": 10,
-        "friendly": 0
+        "hp": 30,
+        "power": 15,
+        "intelligent": 15,
+        "mental": 15,
+        "friendly": 15
+      }
+    }
+    {
+      "id": 9,
+      "title": "子供にとられる",
+      "msg": [ "コンサート会場へ来た", "クラシック音楽を聴いた" ],
+      "effect": {
+        "time": 6,
+        "hp": 10,
+        "power": 15,
+        "intelligent": 0,
+        "mental": -15,
+        "friendly": 15
       }
     }
   ]

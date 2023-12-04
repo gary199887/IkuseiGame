@@ -95,7 +95,7 @@ public class GameDirector : MonoBehaviour
         dialogManager.showDialog(endMsg);
     }
     public void showStartMsg() {
-        string[] startMsg = new string[] { "The Seedの世界へようこそ" , "ここからは四週間かかって謎の植物を育てるよ", "色々実験して", "28日目終了後のエンディングを見てみましょう" };
+        string[] startMsg = new string[] { "The Seedの世界へようこそ" , "ここからは28日間で謎の植物を育てます", "色々実験して、様々な結果を集めましょう" };
         dialogManager.showDialog(startMsg);
     }
 
