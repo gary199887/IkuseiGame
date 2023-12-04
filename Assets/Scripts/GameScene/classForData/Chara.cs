@@ -69,7 +69,7 @@ public class Chara
     }
 
     public string getShowingStatus() {          // ステータス変更用文字列
-        string showingStatus = $"HP:\n{hp}\n\n筋力\n{power}\n\n知力\n{intelligent}\n\nメンタル\n{mental}\n";
+        string showingStatus = $"HP\n{hp}\n\n筋力\n{power}\n\n知力\n{intelligent}\n\nメンタル\n{mental}\n";
         return showingStatus;
     }
 
