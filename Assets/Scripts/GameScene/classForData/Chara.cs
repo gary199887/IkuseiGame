@@ -27,9 +27,9 @@ public class Chara
 
     public Chara (){        // contructor キャラクタの初期値を決める
         hp = 100; 
-        power = 100; 
-        intelligent = 100; 
-        mental = 100; 
+        power = 50; 
+        intelligent = 50; 
+        mental = 50; 
         friendly = 0;
     }
     public Chara(Chara copyFrom) {

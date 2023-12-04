@@ -38,7 +38,7 @@ public class GameDirector : MonoBehaviour
         CommonFunctions.endGameWithEsc();
     }
 
-    public void changeParameter(Effect effect) {
+    public void changeParameter(Effect effect, int mode = 0) {
         chara.doEffect(effect);
         hintManager.showEffectHint(effect);
     }

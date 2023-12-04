@@ -37,7 +37,19 @@ public class ActionSelector : MonoBehaviour
         doActionWithLv(actionWithLv.勉強させる);
     }
     public void onItemButtonClicked() {        //　アイテム使用ボタンがクリックされた時呼び出すメソッド
-        string[] msg = { "アイテムを使用した" };
+        string successOrNot = "";
+        if (getSuccessOrNot(50))
+        {
+            successOrNot = "効果はバツグンのようだ！";
+            effect = new Effect(7, -10, 30, 30, 30, -10);
+        }
+        else
+        {
+            successOrNot = "まずい、注入した薬が逆作用を起こしたようだ！";
+            effect = new Effect(7, -30, -30, -30, -30, -20);
+        }
+        gameDirector.changeParameter(effect);
+        string[] msg = { "変な薬を注入した", successOrNot, effect.getPlusMsg(), effect.getMinusMsg()};
         dialogManager.showDialog(msg);
     }
 
