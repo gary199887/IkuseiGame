@@ -48,18 +48,7 @@ public class ActionSelector : MonoBehaviour
 
     public void onOutingButtonClicked()     //　外出ボタンがクリックされた時呼び出すメソッド
     {
-        // イベント発生処理追加予定
-        OutingEventList eventsData = OutingEventManager.LoadEvents();
-        int eventNum = Random.Range(0, eventsData.events.Count);    // イベント数に応じてランダム
-        
-        effect = eventsData.events[eventNum].effect;
-        gameDirector.changeParameter(effect);
-
-        string[] msg1 = eventsData.events[eventNum].msg;
-        string[] msg2 = { effect.getPlusMsg(), effect.getMinusMsg() };
-        string[] msg = msg1.Concat(msg2).ToArray();  // 配列の結合
-        dialogManager.showDialog(msg);
-        outingEventManager.ShowOutingEvent(eventNum);
+        outingEventManager.DoOutingEvent(actions);
     }
 
     // 行動選択ボタンを消す

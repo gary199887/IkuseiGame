@@ -31,6 +31,8 @@ public class GameDirector : MonoBehaviour
         
         FixedEventManager.setFixedEvent(fixedEventList);
        
+        OutingEventList outingEventList = OutingEventDataIO.LoadOutingEvent();
+        OutingEventManager.SetOutingEvent(outingEventList);
     }
 
     void Update()

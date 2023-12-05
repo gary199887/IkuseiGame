@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class OutingEventDataIO : MonoBehaviour
@@ -21,10 +22,38 @@ public class OutingEventDataIO : MonoBehaviour
         ev = new OutingEvent(2, "イベント2", new string[] { "テスト", "test" }, new Effect(1, 2, 3, 1, 2, 3));
         eventsData.events.Add(ev);
 
-        OutingEventManager.SaveEvents(eventsData);
-        eventsData = OutingEventManager.LoadEvents();
+        SaveOutingEvent(eventsData);
+        eventsData = LoadOutingEvent();
 
         Debug.Log(eventsData.events[1].id);
         Debug.Log(eventsData.events[1].title);
+    }
+
+    static string filePath = "./Json/Event/.outingEventDataTest.json";
+    // jsonとしてデータを保存
+    public static void SaveOutingEvent(OutingEventList data)
+    {
+        if (!File.Exists(filePath))   // ファイルが無ければ生成
+        {
+            string json = JsonUtility.ToJson(data);
+            StreamWriter streamWriter = new StreamWriter(filePath, false);
+            streamWriter.Write(json);
+            streamWriter.Flush();
+            streamWriter.Close();
+        }
+    }
+    // jsonファイル読み込み
+    public static OutingEventList LoadOutingEvent()
+    {
+        filePath = "./Json/Event/.outingEventData.json";
+        if (File.Exists(filePath))
+        {
+            StreamReader rd = new StreamReader(filePath);           // ファイル読み込み指定
+            string json = rd.ReadToEnd();                           // ファイル内容全て読み込む
+            rd.Close();                                             // ファイル閉じる
+
+            return JsonUtility.FromJson<OutingEventList>(json);           // jsonファイルを型に戻して返す
+        }
+        return null;
     }
 }
