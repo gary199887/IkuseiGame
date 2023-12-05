@@ -1,0 +1,267 @@
+{
+  "fixedEvents": [
+    {
+      "id": 0,
+      "name": "A",
+      "msg": [
+        "筋力が高い様子",
+        "筋力が増加した"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 20,
+        "intelligent": 0,
+        "mental": 0,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 1,
+      "name": "B",
+      "msg": [
+        "知力が高い様子だ",
+        "知力が増加した"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 20,
+        "mental": 0,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 2,
+      "name": "C",
+      "msg": [
+        "メンタルが高い様子だ",
+        "メンタルが増加した"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 0,
+        "mental": 20,
+        "friendly": 0
+      },
+      "happened": false,
+      "trigger": {
+        "parameter": 3,
+        "needed": 0,
+        "happenDay": 7
+      }
+    },
+    {
+      "id": 3,
+      "name": "A1",
+      "msg": [
+        "筋力が成長している",
+        "筋力がさらに上がった"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 20,
+        "intelligent": 0,
+        "mental": 0,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 4,
+      "name": "A2",
+      "msg": [
+        "筋力があまり成長していない",
+        "筋力が下がった"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": -20,
+        "intelligent": 0,
+        "mental": 0,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 5,
+      "name": "B1",
+      "msg": [
+        "知力が成長している",
+        "知力がさらに上がった"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 20,
+        "mental": 0,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 6,
+      "name": "B2",
+      "msg": [
+        "知力があまり成長していない",
+        "知力が下がった"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": -20,
+        "mental": 0,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 7,
+      "name": "C1",
+      "msg": [
+        "メンタルが成長している",
+        "メンタルがさらに上がった"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 0,
+        "mental": 20,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 8,
+      "name": "C2",
+      "msg": [
+        "メンタルがあまり成長していない",
+        "メンタルが下がった"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 0,
+        "mental": -20,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 9,
+      "name": "AA1",
+      "msg": [
+        "筋力良好、好感度良好",
+        "筋力と好感度が上がった"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 10,
+        "intelligent": 0,
+        "mental": 0,
+        "friendly": 20
+      },
+      "happened": false
+    },
+    {
+      "id": 10,
+      "name": "AA2",
+      "msg": [
+        "筋力良好、好感度不良",
+        "筋力が上がった",
+        "好感度が下がった"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": -20,
+        "intelligent": 0,
+        "mental": 0,
+        "friendly": -20
+      },
+      "happened": false
+    },
+    {
+      "id": 11,
+      "name": "BB1",
+      "msg": [
+        "知力良好、好感度良好",
+        "知力と好感度が上がった"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 10,
+        "mental": 0,
+        "friendly": 20
+      },
+      "happened": false
+    },
+    {
+      "id": 12,
+      "name": "BB2",
+      "msg": [
+        "知力良好、好感度不良",
+        "知力が上がった",
+        "好感度が下がった"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": -20,
+        "mental": 0,
+        "friendly": -20
+      },
+      "happened": false
+    },
+    {
+      "id": 13,
+      "name": "CC1",
+      "msg": [
+        "メンタル良好、好感度良好",
+        "メンタルと好感度が上がった"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 10,
+        "mental": 0,
+        "friendly": 20
+      },
+      "happened": false
+    },
+    {
+      "id": 14,
+      "name": "CC2",
+      "msg": [
+        "メンタル良好、好感度不良",
+        "メンタルが上がった",
+        "好感度が下がった"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": -20,
+        "mental": 0,
+        "friendly": -20
+      },
+      "happened": false
+    }
+  ]
+}

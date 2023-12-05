@@ -27,11 +27,20 @@ public class Chara
 
     public Chara (){        // contructor キャラクタの初期値を決める
         hp = 100; 
-        power = 100; 
-        intelligent = 100; 
-        mental = 100; 
+        power = 50; 
+        intelligent = 50; 
+        mental = 50; 
         friendly = 0;
     }
+    public Chara(int hp, int power, int intelligent, int mental, int friendly)
+    {
+        this.hp = hp;
+        this.power = power;
+        this.intelligent = intelligent;
+        this.mental = mental;
+        this.friendly = friendly;
+    }
+
     public Chara(Chara copyFrom) {
         hp = copyFrom.hp;
         power = copyFrom.power;
@@ -69,7 +78,7 @@ public class Chara
     }
 
     public string getShowingStatus() {          // ステータス変更用文字列
-        string showingStatus = $"HP:\n{hp}\n\n筋力\n{power}\n\n知力\n{intelligent}\n\nメンタル\n{mental}\n";
+        string showingStatus = $"HP\n{hp}\n\n筋力\n{power}\n\n知力\n{intelligent}\n\nメンタル\n{mental}\n";
         return showingStatus;
     }
 

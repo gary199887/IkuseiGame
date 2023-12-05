@@ -5,7 +5,7 @@ using System.IO;
 
 public class FixedEventIO : MonoBehaviour
 {
-    static string filePath = "./Json/.fixedEventData.json";
+    static string filePath = "./Json/Event/.fixedEventData.json";
     public static void saveFixedEvent(FixedEventList inputEvent)
     {
         //filePath = "./Json/.stageDataTest.json";

@@ -12,6 +12,7 @@ public class GameDirector : MonoBehaviour
     const int maxDay = 28;                  // 日数上限
     [SerializeField] Text statusText;       // ステータスのUIテキスト
     [SerializeField] Text timeText;         // 日時のUIテキスト
+    [SerializeField] Text friendlyText;     // デバッグ用好感度表示
     [SerializeField] DialogManager dialogManager;
     [SerializeField] ActionSelector actionSelector;
     [SerializeField] HintManager hintManager;
@@ -40,8 +41,9 @@ public class GameDirector : MonoBehaviour
         CommonFunctions.endGameWithEsc();
     }
 
-    public void changeParameter(Effect effect) {
+    public void changeParameter(Effect effect, int mode = 0) {
         chara.doEffect(effect);
+        friendlyText.text = $"{chara.getFriendly()}";
         hintManager.showEffectHint(effect);
     }
 
@@ -97,7 +99,7 @@ public class GameDirector : MonoBehaviour
         dialogManager.showDialog(endMsg);
     }
     public void showStartMsg() {
-        string[] startMsg = new string[] { "The Seedの世界へようこそ" , "ここからは四週間かかって謎の植物を育てるよ", "色々実験して", "28日目終了後のエンディングを見てみましょう" };
+        string[] startMsg = new string[] { "The Seedの世界へようこそ" , "ここからは28日間で謎の植物を育てます", "色々実験して、様々な結果を集めましょう" };
         dialogManager.showDialog(startMsg);
     }
 
@@ -108,6 +110,8 @@ public class GameDirector : MonoBehaviour
         SceneManager.LoadScene("ResultScene");
     }
 
+    // 以下はデバッグ用メソッド
+    // 一日経過
     public void debugDayPass()
     {
         currentDay += 1;
@@ -115,5 +119,56 @@ public class GameDirector : MonoBehaviour
         dialogManager.showDialog(new string[] { "1日経過しました" });
     }
 
-    
+    // ステータスの加算/減算
+    public void debugStatus(int status, int mode, int value)
+    {
+        Effect effect = new Effect();
+        switch (status) {
+            // status : 0->好感度   1->筋力   2->知力   3->メンタル
+            // mode:    0->加算   0以外->減算
+            // value:   加算/減算する値
+            case 0:
+                if (mode == 0)
+                    effect.friendly = value;
+                else
+                    effect.friendly = -value;
+                break;
+            case 1:
+                if (mode == 0)
+                    effect.power = value;
+                else
+                    effect.power = -value;
+                break;
+            case 2:
+                if(mode == 0)
+                    effect.intelligent = value;
+                else
+                    effect.intelligent= -value;
+                break;
+            case 3:
+                if (mode == 0)
+                    effect.mental = value;
+                else
+                    effect.mental = -value;
+                break;
+        }
+
+        // 影響を適用
+        actionSelector.effect = effect;
+        changeParameter(effect);
+        dialogManager.showDialog(new string[] { effect.getPlusMsg(), effect.getMinusMsg() });
+    }
+
+    // ステータス平均化
+    public void debugStatusAverage() {
+        // 筋力、知力、メンタルの平均（小数は切り捨て）
+        int statusAverage = (chara.getPower() + chara.getIntelligent() + chara.getMental()) / 3;
+        // キャラを目標の均一ステータスになるような影響
+        Effect effect = Effect.statusToTargetChara(chara, new Chara(0, statusAverage, statusAverage, statusAverage, 0));
+        // 影響を適用
+        actionSelector.effect = effect;
+        changeParameter(effect);
+        dialogManager.showDialog(new string[] { "ステータスは平均化された" });
+    }
+
 }

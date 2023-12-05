@@ -289,6 +289,8 @@ MonoBehaviour:
   dialogText: {fileID: 1400983205}
   actionSelector: {fileID: 0}
   resultDirector: {fileID: 464184082}
+  outingEventManager: {fileID: 0}
+  gameDirector: {fileID: 0}
 --- !u!4 &1371891070
 Transform:
   m_ObjectHideFlags: 0
@@ -355,15 +357,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 95dafbfb016b9284ab37bbb4e119a47f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 0
   m_FillMethod: 4
@@ -439,7 +441,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: d1105e6ee156018408e63c85e8f715aa, type: 3}
     m_FontSize: 38
     m_FontStyle: 0
     m_BestFit: 0
@@ -691,8 +693,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1400983204}
   - {fileID: 1396029367}
+  - {fileID: 1400983204}
   - {fileID: 1416791218}
   m_Father: {fileID: 1798948479}
   m_RootOrder: -1
