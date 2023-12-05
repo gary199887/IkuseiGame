@@ -12,6 +12,7 @@ public class GameDirector : MonoBehaviour
     const int maxDay = 28;                  // 日数上限
     [SerializeField] Text statusText;       // ステータスのUIテキスト
     [SerializeField] Text timeText;         // 日時のUIテキスト
+    [SerializeField] Text friendlyText;     // デバッグ用好感度表示
     [SerializeField] DialogManager dialogManager;
     [SerializeField] ActionSelector actionSelector;
     [SerializeField] HintManager hintManager;
@@ -40,6 +41,7 @@ public class GameDirector : MonoBehaviour
 
     public void changeParameter(Effect effect, int mode = 0) {
         chara.doEffect(effect);
+        friendlyText.text = $"{chara.getFriendly()}";
         hintManager.showEffectHint(effect);
     }
 
@@ -106,6 +108,8 @@ public class GameDirector : MonoBehaviour
         SceneManager.LoadScene("ResultScene");
     }
 
+    // 以下はデバッグ用メソッド
+    // 一日経過
     public void debugDayPass()
     {
         currentDay += 1;
@@ -113,5 +117,47 @@ public class GameDirector : MonoBehaviour
         dialogManager.showDialog(new string[] { "1日経過しました" });
     }
 
-    
+    // ステータスの加算/減算
+    public void debugStatus(int status, int mode, int value)
+    {
+        Effect effect = new Effect();
+        switch (status) {
+            case 0:
+                if (mode == 0)
+                    effect.friendly = value;
+                else
+                    effect.friendly = -value;
+                break;
+            case 1:
+                if (mode == 0)
+                    effect.power = value;
+                else
+                    effect.power = -value;
+                break;
+            case 2:
+                if(mode == 0)
+                    effect.intelligent = value;
+                else
+                    effect.intelligent= -value;
+                break;
+            case 3:
+                if (mode == 0)
+                    effect.mental = value;
+                else
+                    effect.mental = -value;
+                break;
+        }
+        actionSelector.effect = effect;
+        changeParameter(effect);
+        dialogManager.showDialog(new string[] { effect.getPlusMsg(), effect.getMinusMsg() });
+    }
+
+    public void debugStatusAverage() {
+        int statusAverage = (chara.getPower() + chara.getIntelligent() + chara.getMental()) / 3;
+        Effect effect = Effect.statusToTargetChara(chara, new Chara(0, statusAverage, statusAverage, statusAverage, 0));
+        actionSelector.effect = effect;
+        changeParameter(effect);
+        dialogManager.showDialog(new string[] { "ステータスは平均化された" });
+    }
+
 }

@@ -76,5 +76,16 @@ public class Effect
 
         return result;
     }
+
+    // ターゲットのキャラステータスへ変化するためのEffect(筋力、知力、メンタルのみ)
+    public static Effect statusToTargetChara(Chara begin, Chara target) {
+        Effect effect = new Effect();
+
+        effect.power = target.getPower() - begin.getPower();
+        effect.intelligent = target.getIntelligent() - begin.getIntelligent();
+        effect.mental = target.getMental() - begin.getMental();
+
+        return effect;
+    }
 }
    

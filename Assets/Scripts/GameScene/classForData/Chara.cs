@@ -32,6 +32,15 @@ public class Chara
         mental = 50; 
         friendly = 0;
     }
+    public Chara(int hp, int power, int intelligent, int mental, int friendly)
+    {
+        this.hp = hp;
+        this.power = power;
+        this.intelligent = intelligent;
+        this.mental = mental;
+        this.friendly = friendly;
+    }
+
     public Chara(Chara copyFrom) {
         hp = copyFrom.hp;
         power = copyFrom.power;
