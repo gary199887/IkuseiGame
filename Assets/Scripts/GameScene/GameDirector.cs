@@ -122,6 +122,9 @@ public class GameDirector : MonoBehaviour
     {
         Effect effect = new Effect();
         switch (status) {
+            // status : 0->好感度   1->筋力   2->知力   3->メンタル
+            // mode:    0->加算   0以外->減算
+            // value:   加算/減算する値
             case 0:
                 if (mode == 0)
                     effect.friendly = value;
@@ -147,14 +150,20 @@ public class GameDirector : MonoBehaviour
                     effect.mental = -value;
                 break;
         }
+
+        // 影響を適用
         actionSelector.effect = effect;
         changeParameter(effect);
         dialogManager.showDialog(new string[] { effect.getPlusMsg(), effect.getMinusMsg() });
     }
 
+    // ステータス平均化
     public void debugStatusAverage() {
+        // 筋力、知力、メンタルの平均（小数は切り捨て）
         int statusAverage = (chara.getPower() + chara.getIntelligent() + chara.getMental()) / 3;
+        // キャラを目標の均一ステータスになるような影響
         Effect effect = Effect.statusToTargetChara(chara, new Chara(0, statusAverage, statusAverage, statusAverage, 0));
+        // 影響を適用
         actionSelector.effect = effect;
         changeParameter(effect);
         dialogManager.showDialog(new string[] { "ステータスは平均化された" });
