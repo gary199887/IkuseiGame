@@ -14,22 +14,22 @@ public class Random_Contest : RandomEvent
         int totalStatus = chara.getPower() + chara.getIntelligent() + chara.getMental();
         if (totalStatus >= GameDirector.currentDay * 55)
         {
-            result.power = 5;
-            result.intelligent = 5;
-            result.mental = 5;
+            result.power = 5 * actions[0].getLv();
+            result.intelligent = 5 * actions[1].getLv();
+            result.mental = 5 * actions[2].getLv();
             msg.Add("Å—DGÜ‚ğæ‚Á‚½");
         }
         else if (totalStatus >= GameDirector.currentDay * 45)
         {
-            result.power = 3;
-            result.intelligent = 3;
-            result.mental = 3;
+            result.power = 3 * actions[0].getLv();
+            result.intelligent = 3 * actions[1].getLv();
+            result.mental = 3 * actions[2].getLv();
             msg.Add("ˆê‰“üÜ‚µ‚½‚»‚¤‚¾");
         }
         else {
-            result.power = -3;
-            result.intelligent = -3;
-            result.mental = -3;
+            result.power = -3 * actions[0].getLv();
+            result.intelligent = -3 * actions[1].getLv();
+            result.mental = -3 * actions[2].getLv();
             msg.Add("c”O‚È‚ª‚ç–¢“üÜ‚¾‚Á‚½");
         }
         return result;
