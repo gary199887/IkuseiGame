@@ -2143,6 +2143,7 @@ MonoBehaviour:
   actionSelector: {fileID: 1382318807}
   hintManager: {fileID: 336643757}
   fixedEventManager: {fileID: 1828717601}
+  randomEventManager: {fileID: 384981397}
 --- !u!1 &655000259
 GameObject:
   m_ObjectHideFlags: 0

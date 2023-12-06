@@ -97,6 +97,7 @@ public class GameDirector : MonoBehaviour
         {
             randomEventManager.occurRandomEvent();
             randomEventHappended = true;
+            return true;
         }
         return false;
     }
