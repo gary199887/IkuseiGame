@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    MyButton button;
+
+    private void Start()
+    {
+        button = null;
+    }
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))       // マウス左ボタンクリック
         {
+           
             Vector3 mousePos = Input.mousePosition;
             //Debug.Log(mousePos);                // マウス位置(Vec3)をlogにプリント
             
@@ -25,8 +32,19 @@ public class PlayerController : MonoBehaviour
             }
 
             if (clickedGameObject != null && clickedGameObject.CompareTag("ButtonInTitleScene"))
-                clickedGameObject.GetComponent<MyButton>().onClicked();
+            {
+
+                button = clickedGameObject.GetComponent<MyButton>();
+                Invoke("doButtonFunction", 0.2f);
+
+                TitleDirector.buttonClicked = true;
+                
+            }
             //Debug.Log(clickedGameObject);   // print out in log
         }
+    }
+
+    void doButtonFunction() {
+        button.onClicked();
     }
 }
