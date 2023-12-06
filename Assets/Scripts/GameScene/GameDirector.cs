@@ -6,10 +6,11 @@ public class GameDirector : MonoBehaviour
 {
     public static Chara chara;              // キャラ
     public static bool gameOver;            // gameOver flag
-    int currentDay;                         // 今の日数（N日目）
-    int currentHour;                        // 今の時間（N時(0 ~ 23)）
+    public static int currentDay;           // 今の日数（N日目）
+    public static int currentHour;          // 今の時間（N時(0 ~ 23)）
     const int maxHour = 23;                 // 時間上限
     const int maxDay = 28;                  // 日数上限
+    bool randomEventHappended;              // ランダムイベントが発生したかどうか(false時発生させる)
     [SerializeField] Text statusText;       // ステータスのUIテキスト
     [SerializeField] Text timeText;         // 日時のUIテキスト
     [SerializeField] Text friendlyText;     // デバッグ用好感度表示
@@ -17,6 +18,7 @@ public class GameDirector : MonoBehaviour
     [SerializeField] ActionSelector actionSelector;
     [SerializeField] HintManager hintManager;
     [SerializeField] FixedEventManager fixedEventManager;
+    [SerializeField] RandomEventManager randomEventManager;
     
     void Start()
     {
@@ -28,6 +30,7 @@ public class GameDirector : MonoBehaviour
         revealStatusInUI();
         revealTimeUI();
         actionSelector.effect = null;
+        randomEventHappended = true;
         FixedEventList fixedEventList = FixedEventIO.loadFixedEvent();
         
         FixedEventManager.setFixedEvent(fixedEventList);
@@ -41,7 +44,7 @@ public class GameDirector : MonoBehaviour
         CommonFunctions.endGameWithEsc();
     }
 
-    public void changeParameter(Effect effect, int mode = 0) {
+    public void changeParameter(Effect effect) {
         chara.doEffect(effect);
         friendlyText.text = $"{chara.getFriendly()}";
         hintManager.showEffectHint(effect);
@@ -83,12 +86,21 @@ public class GameDirector : MonoBehaviour
                 dialogManager.showDialog(new string[] { "日が変わった", "4時間休憩した..." });
             }
 
+            if (currentDay % 4 == 0 && currentDay < maxDay){   // ランダムイベントの発生日（4日目、8日目、12日目、16日目、20日目、24日目）
+                randomEventHappended = false;
+            }
 
             changeParameter(actionSelector.effect);
            
             return true;
         }
-        
+
+        if (!randomEventHappended)      // 当日ランダムイベントが発生したか、false時イベント発生、trueを代入
+        {
+            randomEventManager.occurRandomEvent();
+            randomEventHappended = true;
+            return true;
+        }
         return false;
     }
 
@@ -109,6 +121,7 @@ public class GameDirector : MonoBehaviour
         Debug.Log(EndingManager.endingList[0].cleared);
         SceneManager.LoadScene("ResultScene");
     }
+
 
     // 以下はデバッグ用メソッド
     // 一日経過
