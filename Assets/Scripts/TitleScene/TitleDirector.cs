@@ -3,31 +3,53 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
-public class TitleDirector : MonoBehaviour
+public class TitleDirector : CommonFunctions
 {
     float timeCount;
     bool skipped;
+    bool typingDone;
+    public static bool buttonClicked;
     string title = "The Seed: Origin";
     [SerializeField] Text titleObj;
     [SerializeField] GameObject buttons;
+    [SerializeField] TitleAudioManager titleAudioManager;
+    [SerializeField] GameObject titleChara;
 
     // Start is called before the first frame update
     void Start()
     {
         timeCount = 0;
+        typingDone = false;
         titleObj.text = keepTalking(title);
         buttons.SetActive(false);
+        buttonClicked = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        CommonFunctions.endGameWithEsc();
+        endGameWithEsc();
         timeCount += Time.deltaTime;
         titleObj.text = keepTalking(title) + blinkingHint();
-        if(sentenceCompleted())
-            buttons.SetActive(true);
+        if (typingDone) {
+            if (!buttons.activeSelf) buttons.SetActive(true);
+            titleAudioManager.stopKeyboardSE();
+            titleAudioManager.playBGM();
+
+            // タイトルキャラフェードイン（仮）
+            if (titleChara.transform.position.y < -2.57f) titleChara.transform.Translate(new Vector2(0, 1.0f * Time.deltaTime));
+        }
+
+        if (buttonClicked) {
+            titleAudioManager.playConfirmSE();
+            buttonClicked = false;
+        }
+        if (sentenceCompleted())
+        {
+         typingDone = true;
+        }
     }
 
     string keepTalking(string fullSentence)
