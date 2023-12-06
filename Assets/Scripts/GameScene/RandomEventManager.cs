@@ -22,7 +22,7 @@ public class RandomEventManager : MonoBehaviour
             RandomEvent happeningEvent = randomEvents[Random.Range(0, randomEvents.Count)];
 
             // イベント発生処理（影響を得る、メッセージを改変）
-            Effect effect = happeningEvent.doSomething(GameDirector.chara);
+            Effect effect = happeningEvent.doSomething(GameDirector.chara, ActionSelector.actions);
             // イベントから結果に応じたメッセージを取得
             List<string>msg = new List<string>(happeningEvent.msg);
             // 影響を代入
