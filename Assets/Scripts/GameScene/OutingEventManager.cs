@@ -10,7 +10,9 @@ public class OutingEventManager : MonoBehaviour
     [SerializeField] GameDirector gameDirector;
     [SerializeField] DialogManager dialogManager;
     [SerializeField] ActionSelector actionSelector;
-    [SerializeField] Image eventImage;
+    //[SerializeField] Image eventImage;
+    [SerializeField] SpriteRenderer backGround;
+    [SerializeField] Sprite labo;
     [SerializeField] Sprite[] eventSprites;
 
     static OutingEventList outingEventList;
@@ -25,9 +27,17 @@ public class OutingEventManager : MonoBehaviour
         outingEventList = loadedList;
     }
 
+    private void ShowOutingEvent(int eventNum)
+    {
+        backGround.sprite = eventSprites[outingEventList.events[eventNum].id];
+        //eventImage.sprite = eventSprites[outingEventList.events[eventNum].id];
+        //outingEvent.SetActive(true);
+    }
+
     public void CloseOutingEvent()
     {
-        outingEvent.SetActive(false);
+        backGround.sprite = labo;
+        //outingEvent.SetActive(false);
     }
 
     public void DoOutingEvent(Action[] actions)
@@ -44,8 +54,7 @@ public class OutingEventManager : MonoBehaviour
         string[] msg = eventMsg.Concat(effectMsg).ToArray();  // 配列の結合
         dialogManager.showDialog(msg);
 
-        eventImage.sprite = eventSprites[eventNum];
-        outingEvent.SetActive(true);
+        ShowOutingEvent(eventNum);
     }
 
     // 影響の各数値に行動レベルを乗算
