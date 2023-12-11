@@ -12,7 +12,7 @@ public class RandomEventManager : MonoBehaviour
     private void Start()
     {
         // 各種ランダムイベントをバッファーに追加
-        randomEvents = new List<RandomEvent>{ new Random_Contest(), new Random_Puzzle() };
+        randomEvents = new List<RandomEvent>{ new Random_Contest(), new Random_Puzzle(), new Random_StaminaTest(), new Random_Stage() };
     }
     // ランダムイベント発生
     public void occurRandomEvent() {
@@ -30,7 +30,7 @@ public class RandomEventManager : MonoBehaviour
             // 影響をパラメータに適用
             gameDirector.changeParameter(actionSelector.effect);
             
-            // メッセージにエフェクトに応じた上昇、降下項目を追加
+            // メッセージにエフェクトに応じた上昇、下降項目を追加
             msg.Add(effect.getPlusMsg());
             msg.Add(effect.getMinusMsg());
             // メッセージを表示

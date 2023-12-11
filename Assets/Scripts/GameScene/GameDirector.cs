@@ -93,7 +93,7 @@ public class GameDirector : MonoBehaviour
             return true;
         }
 
-        if (!randomEventHappended)      // 当日ランダムイベントが発生したか、false時イベント発生、trueを代入
+        if (!randomEventHappended && currentHour >= 12)      // 当日ランダムイベントが発生したか、false時イベント発生、trueを代入
         {
             randomEventManager.occurRandomEvent();
             randomEventHappended = true;
