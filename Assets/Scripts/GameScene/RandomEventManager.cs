@@ -12,7 +12,7 @@ public class RandomEventManager : MonoBehaviour
     private void Start()
     {
         // 各種ランダムイベントをバッファーに追加
-        randomEvents = new List<RandomEvent>{ new Random_Contest() };
+        randomEvents = new List<RandomEvent>{ new Random_Contest(), new Random_Puzzle() };
     }
     // ランダムイベント発生
     public void occurRandomEvent() {

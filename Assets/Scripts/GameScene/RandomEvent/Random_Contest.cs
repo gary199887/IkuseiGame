@@ -7,10 +7,10 @@ public class Random_Contest : RandomEvent
     public Random_Contest(){
         id = 4;
     }
-    override public Effect doSomething(Chara chara = null, Action[] actions = null)
+    override public Effect doSomething(Chara chara, Action[] actions)
     {
         Effect result = new Effect();
-        msg = new List<string>() { "コンテストに出場した！" };
+        msg.Add("コンテストに出場した！");
         int totalStatus = chara.getPower() + chara.getIntelligent() + chara.getMental();
         if (totalStatus >= GameDirector.currentDay * 55)
         {
