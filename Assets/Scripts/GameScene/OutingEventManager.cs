@@ -11,7 +11,13 @@ public class OutingEventManager : MonoBehaviour
     [SerializeField] DialogManager dialogManager;
     [SerializeField] ActionSelector actionSelector;
     [SerializeField] Image eventImage;
-    [SerializeField] Sprite[] eventSprites;
+    [System.Serializable]
+    class EventSprites
+    {
+        public List<Sprite> sprite;
+    }
+    [SerializeField] List<EventSprites> eventSprites;
+
     int happeningEvent;
 
     static OutingEventList outingEventList;
@@ -28,7 +34,7 @@ public class OutingEventManager : MonoBehaviour
     private void Update()
     {
         if (outingEvent.activeSelf) {
-            CommonFunctions.twoImgAnimation(eventImage, eventSprites[happeningEvent * 2], eventSprites[happeningEvent * 2 + 1]);
+            CommonFunctions.ImagesAnimation(eventImage, eventSprites[happeningEvent].sprite);
         }
     }
 
@@ -36,7 +42,7 @@ public class OutingEventManager : MonoBehaviour
     {
         happeningEvent = eventNum;
         outingEvent.SetActive(true);
-        eventImage.sprite = eventSprites[eventNum];
+        eventImage.sprite = eventSprites[eventNum].sprite[0];
     }
 
     public void CloseOutingEvent()
