@@ -10,10 +10,9 @@ public class OutingEventManager : MonoBehaviour
     [SerializeField] GameDirector gameDirector;
     [SerializeField] DialogManager dialogManager;
     [SerializeField] ActionSelector actionSelector;
-    //[SerializeField] Image eventImage;
-    [SerializeField] SpriteRenderer backGround;
-    [SerializeField] Sprite labo;
+    [SerializeField] Image eventImage;
     [SerializeField] Sprite[] eventSprites;
+    int happeningEvent;
 
     static OutingEventList outingEventList;
 
@@ -26,18 +25,23 @@ public class OutingEventManager : MonoBehaviour
     {
         outingEventList = loadedList;
     }
-
-    private void ShowOutingEvent(int eventNum)
+    private void Update()
     {
-        backGround.sprite = eventSprites[outingEventList.events[eventNum].id];
-        //eventImage.sprite = eventSprites[outingEventList.events[eventNum].id];
-        //outingEvent.SetActive(true);
+        if (outingEvent.activeSelf) {
+            CommonFunctions.twoImgAnimation(eventImage, eventSprites[happeningEvent * 2], eventSprites[happeningEvent * 2 + 1]);
+        }
+    }
+
+    public void ShowOutingEvent(int eventNum)
+    {
+        happeningEvent = eventNum;
+        outingEvent.SetActive(true);
+        eventImage.sprite = eventSprites[eventNum];
     }
 
     public void CloseOutingEvent()
     {
-        backGround.sprite = labo;
-        //outingEvent.SetActive(false);
+        outingEvent.SetActive(false);
     }
 
     public void DoOutingEvent(Action[] actions)

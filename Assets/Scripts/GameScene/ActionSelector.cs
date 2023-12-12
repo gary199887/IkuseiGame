@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ActionSelector : MonoBehaviour
@@ -14,9 +12,15 @@ public class ActionSelector : MonoBehaviour
     [SerializeField] OutingEventManager outingEventManager;     // 外出イベント用マネージャーobj
     public Effect effect;                           // 行動に起こされた変化
     enum actionWithLv { 投げつける, 勉強させる, 話しかける };      // 行動レベルのある行動名(失敗する可能性がある)
-    Action[] actions = {new Action("Throw"), new Action("Study"), new Action("Talk")};  // 行動Lv計算用(投げつけ、勉強、話しかける)
-    int doLvUp = -1;         // 行動レベルアップする際に使用される（index）
+    public static Action[] actions;  // 行動Lv計算用(投げつけ、勉強、話しかける)
+    int doLvUp;         // 行動レベルアップする際に使用される（index）
 
+    void Start()
+    {
+        effect = null;
+        actions = new Action[]{ new Action("Throw"), new Action("Study"), new Action("Talk")};
+        doLvUp = -1;
+    }
     public void onWateringButtonClicked() {     // 水やりボタンがクリックされた時呼び出すメソッド
         closeButtons();
         string[] msg;
