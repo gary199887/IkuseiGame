@@ -3775,7 +3775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1151325822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4823,7 +4823,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 781996103}
         m_TargetAssemblyTypeName: DebugButton, Assembly-CSharp
-        m_MethodName: onIntelligentMinusClicked
+        m_MethodName: onFriendlyMinusClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

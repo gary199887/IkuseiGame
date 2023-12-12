@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 
+[System.Serializable]
 public class Ending
 {
     public int id;
@@ -14,5 +16,14 @@ public class Ending
         if(this.description == null)
             this.description = new string[]{"訳の分からない凶暴な植物である", "雑食", "生態系ピラミッドの頂点を君臨する", "やがて人類をも食べ尽くしたのであった"};
         this.cleared = cleared;
+    }
+}
+
+[System.Serializable]
+public class EndingList {
+    public List<Ending> endings;
+
+    public EndingList() {
+        endings = new List<Ending>();
     }
 }

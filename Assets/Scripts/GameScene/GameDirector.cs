@@ -31,9 +31,13 @@ public class GameDirector : MonoBehaviour
         revealTimeUI();
         actionSelector.effect = null;
         randomEventHappended = true;
+
+        // load json files
         FixedEventList fixedEventList = FixedEventIO.loadFixedEvent();
-        
         FixedEventManager.setFixedEvent(fixedEventList);
+
+        EndingList endingList = EndingIO.loadEnding();
+        EndingManager.setEngindList(endingList);
        
     }
 
@@ -115,8 +119,8 @@ public class GameDirector : MonoBehaviour
 
     public void toEnding() {
         // エンディングへ遷移する処理（エンディング選択未実装、仮のエンディングで送ってる）
-        ResultDirector.ending = EndingManager.chooseEnding(chara);
-        Debug.Log(EndingManager.endingList[0].cleared);
+        ResultDirector.ending = EndingManager.chooseEnding(chara, ActionSelector.actions);
+        Debug.Log(EndingManager.endingList.endings[0].cleared);
         SceneManager.LoadScene("ResultScene");
     }
 
