@@ -18,8 +18,8 @@ public class Random_Stage : RandomEvent
         else if (chara.getMental() >= (2 * actionLv + GameDirector.currentDay / 4 * 3) * 25)
         {
             result.mental = 3 * actionLv;
-            msg.Add("木Gの役をやらせた");
-            msg.Add("全然セリフないのでのでちょっと退屈だった");
+            msg.Add("木Gの役を演じた");
+            msg.Add("全然セリフがないのでので退屈だった");
         }
         else
         {
