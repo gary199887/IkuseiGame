@@ -1,56 +1,91 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class OutingEventManager : MonoBehaviour
 {
     [SerializeField] GameObject outingEvent;
+    [SerializeField] GameDirector gameDirector;
+    [SerializeField] DialogManager dialogManager;
+    [SerializeField] ActionSelector actionSelector;
     [SerializeField] Image eventImage;
-    [SerializeField] Sprite[] eventSprites;
-
-    static string filePath = "./Json/Event/.outingEventDataTest.json";
-    // jsonとしてデータを保存
-    public static void SaveEvents(OutingEventList data)
+    [System.Serializable]
+    class EventSprites
     {
-        if (!File.Exists(filePath))   // ファイルが無ければ生成
-        {
-            string json = JsonUtility.ToJson(data);
-            StreamWriter streamWriter = new StreamWriter(filePath, false);
-            streamWriter.Write(json);
-            streamWriter.Flush();
-            streamWriter.Close();
-        }
+        public List<Sprite> sprite;
     }
-    // jsonファイル読み込み
-    public static OutingEventList LoadEvents()
-    {
-        filePath = "./Json/Event/.outingEventData.json";
-        if (File.Exists(filePath))
-        {
-            StreamReader rd = new StreamReader(filePath);           // ファイル読み込み指定
-            string json = rd.ReadToEnd();                           // ファイル内容全て読み込む
-            rd.Close();                                             // ファイル閉じる
+    [SerializeField] List<EventSprites> eventSprites;
 
-            return JsonUtility.FromJson<OutingEventList>(json);           // jsonファイルを型に戻して返す
-        }
-        return null;
-    }
+    int happeningEvent;
+
+    static OutingEventList outingEventList;
 
     private void Start()
     {
         outingEvent.SetActive(false);
     }
 
+    public static void SetOutingEvent(OutingEventList loadedList)
+    {
+        outingEventList = loadedList;
+    }
+    private void Update()
+    {
+        if (outingEvent.activeSelf) {
+            CommonFunctions.ImagesAnimation(eventImage, eventSprites[happeningEvent].sprite);
+        }
+    }
+
     public void ShowOutingEvent(int eventNum)
     {
+        happeningEvent = eventNum;
         outingEvent.SetActive(true);
-        eventImage.sprite = eventSprites[eventNum];
+        eventImage.sprite = eventSprites[eventNum].sprite[0];
     }
 
     public void CloseOutingEvent()
     {
         outingEvent.SetActive(false);
+    }
+
+    public void DoOutingEvent(Action[] actions)
+    {
+        int eventNum = Random.Range(0, outingEventList.events.Count);    // イベント数に応じてランダム
+
+        //actionSelector.effect = outingEventList.events[eventNum].effect;  // 行動レベル乗算なし
+        actionSelector.effect = EffectMultipleActionLv(actions, outingEventList.events[eventNum].effect);   // 行動レベル乗算あり
+        Effect effect = actionSelector.effect;
+        gameDirector.changeParameter(effect);
+
+        string[] eventMsg = outingEventList.events[eventNum].msg;
+        string[] effectMsg = { effect.getPlusMsg(), effect.getMinusMsg() };
+        string[] msg = eventMsg.Concat(effectMsg).ToArray();  // 配列の結合
+        dialogManager.showDialog(msg);
+
+        ShowOutingEvent(eventNum);
+    }
+
+    // 影響の各数値に行動レベルを乗算
+    Effect EffectMultipleActionLv(Action[] actions, Effect effect)
+    {
+        Effect result = new Effect();
+        result.hp = effect.hp;
+        result.time = effect.time;
+        result.friendly = effect.friendly;
+        if (effect.power != 0)
+        {
+            result.power = effect.power * actions[0].getLv();
+        }
+        if (effect.intelligent != 0)
+        {
+            result.intelligent = effect.intelligent * actions[1].getLv();
+        }
+        if (effect.mental != 0)
+        {
+            result.mental = effect.mental * actions[2].getLv();
+        }
+        return result;
     }
 }

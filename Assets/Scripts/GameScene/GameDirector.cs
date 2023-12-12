@@ -39,6 +39,8 @@ public class GameDirector : MonoBehaviour
         EndingList endingList = EndingIO.loadEnding();
         EndingManager.setEngindList(endingList);
        
+        OutingEventList outingEventList = OutingEventDataIO.LoadOutingEvent();
+        OutingEventManager.SetOutingEvent(outingEventList);
     }
 
     void Update()

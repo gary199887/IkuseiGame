@@ -14,7 +14,7 @@ public class Random_Puzzle : RandomEvent
         if (chara.getIntelligent() >= (2 * actionLv + GameDirector.currentDay) * 25)
         {
             result.intelligent = 5 * actionLv;
-            msg.Add("す、、すごい！ほとんど時間かからなかった！");
+            msg.Add("ほとんど時間かからなかった");
         }
         else if (chara.getIntelligent() >= (2 * actionLv + GameDirector.currentDay / 4 * 3) * 25)
         {
