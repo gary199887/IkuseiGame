@@ -18,7 +18,7 @@ public class ActionSelector : MonoBehaviour
     void Start()
     {
         effect = null;
-        actions = new Action[]{ new Action("Throw"), new Action("Study"), new Action("Talk")};
+        actions = new Action[]{ new Action("Throw"), new Action("Study"), new Action("Talk"), new Action("Out"), new Action("Medicine")};
         doLvUp = -1;
     }
     public void onWateringButtonClicked() {     // 水やりボタンがクリックされた時呼び出すメソッド
@@ -55,6 +55,7 @@ public class ActionSelector : MonoBehaviour
         gameDirector.changeParameter(effect);
         string[] msg = { "変な薬を注入した", successOrNot, effect.getPlusMsg(), effect.getMinusMsg()};
         dialogManager.showDialog(msg);
+        actions[4].times++;
     }
 
     public void onTalkingButtonClicked()    //　会話ボタンがクリックされた時呼び出すメソッド
@@ -64,7 +65,9 @@ public class ActionSelector : MonoBehaviour
 
     public void onOutingButtonClicked()     //　外出ボタンがクリックされた時呼び出すメソッド
     {
+        actions[3].times++;
         outingEventManager.DoOutingEvent(actions);
+
     }
 
     // 行動選択ボタンを消す
@@ -89,7 +92,7 @@ public class ActionSelector : MonoBehaviour
         }
 
         // 成功率をUIに反映
-        for(int i = 0; i < actions.Length; ++i)
+        for(int i = 0; i < 3; ++i)
             hintManager.successChangeInUI(i, getSuccessPercentage(i));
 
         // 時間加算  日数経過がある場合はtrue 

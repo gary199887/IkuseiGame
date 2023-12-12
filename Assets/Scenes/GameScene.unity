@@ -622,8 +622,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -992.88, y: -910.20435}
-  m_SizeDelta: {x: 735.76, y: 260.7072}
+  m_AnchoredPosition: {x: -1074.6, y: -910.20435}
+  m_SizeDelta: {x: 780, y: 260.7072}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &130390417
 GameObject:
@@ -1843,8 +1843,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -47.582825, y: -377.55566}
-  m_SizeDelta: {x: 673.0635, y: 238.9588}
+  m_AnchoredPosition: {x: -117.9, y: -377.55566}
+  m_SizeDelta: {x: 740, y: 238.9588}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &516147626
 MonoBehaviour:
@@ -3775,7 +3775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1151325822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4302,8 +4302,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 640, y: 400}
+  m_AnchoredPosition: {x: -111, y: 38}
+  m_SizeDelta: {x: 768, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1366733513
 MonoBehaviour:
@@ -4823,7 +4823,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 781996103}
         m_TargetAssemblyTypeName: DebugButton, Assembly-CSharp
-        m_MethodName: onIntelligentMinusClicked
+        m_MethodName: onFriendlyMinusClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

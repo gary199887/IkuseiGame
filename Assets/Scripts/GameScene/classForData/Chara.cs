@@ -21,7 +21,7 @@ public class Chara
     // 開示しない情報
     int friendly;       // 好感度（初期値0, 上限、下限(マイナス)を決める）
 
-    const int minFriendly = -50;
+    const int minFriendly = 0;
     const int maxFriendly = 100;
 
 
@@ -114,5 +114,9 @@ public class Chara
 
     public int getMaxFriendly(){
         return maxFriendly;
+    }
+
+    public int getMinFriendly() {
+        return minFriendly;
     }
 }
