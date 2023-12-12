@@ -12,7 +12,7 @@ public class Random_StaminaTest : RandomEvent
         if (chara.getPower() >= (2 * actionLv + GameDirector.currentDay) * 25)
         {
             result.power = 5 * actionLv;
-            msg.Add("こりゃあすげぇぜ！テスト器具の測定可能範囲を大幅に超えている！");
+            msg.Add("テスト器具の測定可能範囲を超えた");
         }
         else if (chara.getPower() >= (2 * actionLv + GameDirector.currentDay / 4 * 3) * 25)
         {
@@ -22,7 +22,8 @@ public class Random_StaminaTest : RandomEvent
         else
         {
             result.power = -3 * actionLv;
-            msg.Add("へなちょこもやし（植物だけに）と笑われた");
+            msg.Add("筋力不足");
+            msg.Add("かなりひどい結果だった");
         }
         return result;
     }
