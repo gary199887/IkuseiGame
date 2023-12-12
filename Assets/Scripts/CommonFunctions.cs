@@ -2,13 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CommonFunctions : MonoBehaviour
 {
-    float timeCnt;
+    static float timeCnt;
     
     public void tenmetsu(GameObject obj)     // switch active/inactive of gameobject constantly
     {
@@ -57,5 +57,14 @@ public class CommonFunctions : MonoBehaviour
         List<string> result = new List<string>(originalString.ToList<string>());
         result.Add(addString);
         return result.ToArray();
+    }
+
+    public static void twoImgAnimation(Image inputObj, Sprite sprite1, Sprite sprite2) {
+        if (timeCnt > 0.7f)
+        {
+            inputObj.sprite = inputObj.sprite == sprite1 ? sprite2 : sprite1;
+            timeCnt = 0;
+        }
+        timeCnt += Time.deltaTime;
     }
 }

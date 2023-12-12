@@ -9,6 +9,7 @@ public class OutingEventManager : MonoBehaviour
     [SerializeField] GameObject outingEvent;
     [SerializeField] Image eventImage;
     [SerializeField] Sprite[] eventSprites;
+    int happeningEvent;
 
     static string filePath = "./Json/Event/.outingEventDataTest.json";
     // jsonÇ∆ÇµÇƒÉfÅ[É^Çï€ë∂
@@ -43,8 +44,16 @@ public class OutingEventManager : MonoBehaviour
         outingEvent.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (outingEvent.activeSelf) {
+            CommonFunctions.twoImgAnimation(eventImage, eventSprites[happeningEvent * 2], eventSprites[happeningEvent * 2 + 1]);
+        }
+    }
+
     public void ShowOutingEvent(int eventNum)
     {
+        happeningEvent = eventNum;
         outingEvent.SetActive(true);
         eventImage.sprite = eventSprites[eventNum];
     }
