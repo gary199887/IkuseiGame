@@ -115,7 +115,7 @@ public class GameDirector : MonoBehaviour
         dialogManager.showDialog(endMsg);
     }
     public void showStartMsg() {
-        string[] startMsg = new string[] { "The Seedの世界へようこそ" , "ここからは28日間で謎の植物を育てます", "色々実験して、様々な結果を集めましょう" };
+        string[] startMsg = new string[] { "所属するゼミで教授から\n謎の植物をもらった。", "一か月程度で多様で\n奇妙に成長するらしい。", "「色々実験して、\nいろんな姿を引き出してくれ」", "そういうわけで、\n謎の植物Seedを育てることになった。" };
         dialogManager.showDialog(startMsg);
     }
 
