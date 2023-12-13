@@ -22,8 +22,8 @@ public class Random_MeetProfessor : RandomEvent
         else
         {
             result.friendly = -10;
-            msg.Add("この植物は君のことをあまり好いていないようだ。");
-            msg.Add("もっとなつかせてみてはどうだい。");
+            msg.Add("この植物は君のことをあまり好いていないようだね。");
+            msg.Add("もっとなつかせてみたらどうだい。");
         }
         return result;
     }
