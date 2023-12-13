@@ -122,7 +122,6 @@ public class GameDirector : MonoBehaviour
     public void toEnding() {
         // エンディングへ遷移する処理（エンディング選択未実装、仮のエンディングで送ってる）
         ResultDirector.ending = EndingManager.chooseEnding(chara, ActionSelector.actions);
-        Debug.Log(EndingManager.endingList.endings[0].cleared);
         SceneManager.LoadScene("ResultScene");
     }
 

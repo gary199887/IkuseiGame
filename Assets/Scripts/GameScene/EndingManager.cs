@@ -1,5 +1,3 @@
-using Unity.VisualScripting;
-
 public class EndingManager
 {
     // エンディング情報リスト(仮)、後々外部ファイルに保存するかも
