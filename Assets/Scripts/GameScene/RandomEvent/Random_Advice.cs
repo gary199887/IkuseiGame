@@ -10,11 +10,11 @@ public class Random_Advice : RandomEvent
     public Random_Advice() 
     {
         id = 2;
-        advice.Add("もっと筋力を伸ばしてみよう!");
-        advice.Add("もっと知力を伸ばしてみよう!");
-        advice.Add("もっとメンタルを伸ばしてみよう!");
-        advice.Add("ステータスを均一に伸ばしてみるのもいいかもしれない");
-        advice.Add("もっとなつかせてみよう!");
+        advice.Add("もっと筋力を伸ばしてみたらどうかな");
+        advice.Add("もっと知力を伸ばしてみたらどうかな");
+        advice.Add("もっとメンタルを伸ばしてみたらどうかな");
+        advice.Add("ステータスを均一にしてみるのもいいかもしれない");
+        advice.Add("もっとなつかせてみたらどうかな");
     }
     override public Effect doSomething(Chara chara = null, Action[] actions = null)
     {
