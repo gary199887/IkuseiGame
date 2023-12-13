@@ -11,20 +11,26 @@ public class TitleDirector : CommonFunctions
     bool skipped;
     bool typingDone;
     public static bool buttonClicked;
+    public static bool showingDictionary;
     string title = "The Seed: Origin";
-    [SerializeField] Text titleObj;
+    [SerializeField] Text titleText;
     [SerializeField] GameObject buttons;
     [SerializeField] TitleAudioManager titleAudioManager;
     [SerializeField] GameObject titleChara;
+    [SerializeField] GameObject titleObj;
+    [SerializeField] GameObject dictionaryObj;
+
 
     // Start is called before the first frame update
     void Start()
     {
         timeCount = 0;
         typingDone = false;
-        titleObj.text = keepTalking(title);
+        titleText.text = keepTalking(title);
         buttons.SetActive(false);
         buttonClicked = false;
+        dictionaryObj.SetActive(false);
+        showingDictionary = false;
     }
 
     // Update is called once per frame
@@ -32,7 +38,7 @@ public class TitleDirector : CommonFunctions
     {
         endGameWithEsc();
         timeCount += Time.deltaTime;
-        titleObj.text = keepTalking(title) + blinkingHint();
+        titleText.text = keepTalking(title) + blinkingHint();
         if (typingDone) {
             if (!buttons.activeSelf) buttons.SetActive(true);
             titleAudioManager.stopKeyboardSE();
@@ -49,6 +55,14 @@ public class TitleDirector : CommonFunctions
         if (sentenceCompleted())
         {
          typingDone = true;
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            if (showingDictionary)
+            {
+                hideDictionary();
+                showTitle();
+            }
         }
     }
 
@@ -76,5 +90,25 @@ public class TitleDirector : CommonFunctions
         if ((int)(timeCount / blinkCd % 2) == 0) { return "|"; }
         
         return " ";
+    }
+
+    public void showTitle() {
+        titleObj.SetActive(true);
+    }
+    public void hideTitle()
+    {
+        titleObj.SetActive(false);
+    }
+
+    public void showDictionary() {
+        showingDictionary = true;
+        dictionaryObj.SetActive(true);
+        hideTitle();
+    }
+
+    public void hideDictionary()
+    {
+        showingDictionary = false;
+        dictionaryObj.SetActive(false);
     }
 }
