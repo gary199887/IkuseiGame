@@ -10,6 +10,7 @@ public class ActionSelector : MonoBehaviour
     [SerializeField] GameDirector gameDirector;     // パラメーター変更用GameDirector Obj
     [SerializeField] HintManager hintManager;
     [SerializeField] OutingEventManager outingEventManager;     // 外出イベント用マネージャーobj
+    [SerializeField] AudioSource SEAudio;   //SE用AudioSource
     public Effect effect;                           // 行動に起こされた変化
     enum actionWithLv { 投げつける, 勉強させる, 話しかける };      // 行動レベルのある行動名(失敗する可能性がある)
     public static Action[] actions;  // 行動Lv計算用(投げつけ、勉強、話しかける)
@@ -24,7 +25,7 @@ public class ActionSelector : MonoBehaviour
     public void onWateringButtonClicked() {     // 水やりボタンがクリックされた時呼び出すメソッド
         closeButtons();
         string[] msg;
-       
+        SEAudio.Play();
         effect = new Effect(5, 30, 0, 0, 0, 1);
         gameDirector.changeParameter(effect);
         msg = new string[] { "水やりをした", effect.getPlusMsg(), effect.getMinusMsg()};
@@ -35,10 +36,12 @@ public class ActionSelector : MonoBehaviour
 
     public void onThrowingButtonClicked() {     // 投げつけるボタンクリックされた時に呼び出すメソッド
         doActionWithLv(actionWithLv.投げつける);
+        SEAudio.Play();
     }
 
     public void onStudyButtonClicked(){        // 勉強させるボタンクリックされた時に呼び出すメソッド
         doActionWithLv(actionWithLv.勉強させる);
+        SEAudio.Play();
     }
     public void onItemButtonClicked() {        //　アイテム使用ボタンがクリックされた時呼び出すメソッド
         string successOrNot = "";
@@ -55,19 +58,21 @@ public class ActionSelector : MonoBehaviour
         gameDirector.changeParameter(effect);
         string[] msg = { "変な薬を注入した", successOrNot, effect.getPlusMsg(), effect.getMinusMsg()};
         dialogManager.showDialog(msg);
+        SEAudio.Play();
         actions[4].times++;
     }
 
     public void onTalkingButtonClicked()    //　会話ボタンがクリックされた時呼び出すメソッド
     {
         doActionWithLv(actionWithLv.話しかける);
+        SEAudio.Play();
     }
 
     public void onOutingButtonClicked()     //　外出ボタンがクリックされた時呼び出すメソッド
     {
         actions[3].times++;
         outingEventManager.DoOutingEvent(actions);
-
+        SEAudio.Play();
     }
 
     // 行動選択ボタンを消す
