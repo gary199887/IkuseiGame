@@ -125,4 +125,8 @@ public class EndingManager
     public static void setEngindList(EndingList endings) {
         endingList = endings;
     }
+
+    public static void saveEndingList() {
+        EndingIO.saveEnding(endingList);
+    }
 }

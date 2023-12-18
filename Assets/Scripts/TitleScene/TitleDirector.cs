@@ -11,20 +11,34 @@ public class TitleDirector : CommonFunctions
     bool skipped;
     bool typingDone;
     public static bool buttonClicked;
+    public static bool showingDictionary;
+    public static bool showingDictionaryDetail;
     string title = "The Seed: Origin";
-    [SerializeField] Text titleObj;
+    [SerializeField] Text titleText;
     [SerializeField] GameObject buttons;
     [SerializeField] TitleAudioManager titleAudioManager;
     [SerializeField] GameObject titleChara;
+    [SerializeField] GameObject titleObj;
+    [SerializeField] GameObject dictionaryObj;
+    [SerializeField] DictionaryManager dictionaryManager;
+    [SerializeField] GameObject dictionaryDetailObj;
+    [SerializeField] GameObject dictionaryImgList;
+    [SerializeField] Text dictionaryTitleText;
+    [SerializeField] Text dictionaryDetailText;
+    [SerializeField] SpriteRenderer dictionaryImg;
+
 
     // Start is called before the first frame update
     void Start()
     {
         timeCount = 0;
         typingDone = false;
-        titleObj.text = keepTalking(title);
+        titleText.text = keepTalking(title);
         buttons.SetActive(false);
         buttonClicked = false;
+        dictionaryObj.SetActive(false);
+        dictionaryDetailObj.SetActive(false);
+        showingDictionary = false;
     }
 
     // Update is called once per frame
@@ -32,7 +46,7 @@ public class TitleDirector : CommonFunctions
     {
         endGameWithEsc();
         timeCount += Time.deltaTime;
-        titleObj.text = keepTalking(title) + blinkingHint();
+        titleText.text = keepTalking(title) + blinkingHint();
         if (typingDone) {
             if (!buttons.activeSelf) buttons.SetActive(true);
             titleAudioManager.stopKeyboardSE();
@@ -49,6 +63,18 @@ public class TitleDirector : CommonFunctions
         if (sentenceCompleted())
         {
          typingDone = true;
+        }
+        if (Input.GetButtonDown("Fire2"))
+        {
+            if (showingDictionary)
+            {
+                hideDictionary();
+                showTitle();
+            }
+            else if (showingDictionaryDetail) {
+                hideDictionaryDetail();
+                showDictionary();
+            }
         }
     }
 
@@ -76,5 +102,50 @@ public class TitleDirector : CommonFunctions
         if ((int)(timeCount / blinkCd % 2) == 0) { return "|"; }
         
         return " ";
+    }
+
+    public void showTitle() {
+        titleObj.SetActive(true);
+    }
+    public void hideTitle()
+    {
+        titleObj.SetActive(false);
+    }
+
+    public void showDictionary() {
+        showingDictionary = true;
+        dictionaryObj.SetActive(true);
+        hideTitle();
+    }
+
+    public void hideDictionary()
+    {
+        showingDictionary = false;
+        dictionaryObj.SetActive(false);
+    }
+
+    public void showDictionaryDetail(int id) {
+        Ending choosenEnding = dictionaryManager.endingList.endings[id];
+        dictionaryImg.sprite = dictionaryManager.sprites[id];
+        float scale = dictionaryManager.resizeSprite(dictionaryManager.sprites[id]) * 4.5f;
+        dictionaryImg.gameObject.transform.localScale = new Vector2(scale, scale);
+        string detailText = "";
+        foreach (string str in choosenEnding.description) 
+            detailText += str + "\n\n\n";
+        dictionaryDetailText.text = detailText;
+        dictionaryTitleText.text = choosenEnding.name;
+
+        dictionaryDetailObj.SetActive(true);
+        dictionaryImgList.SetActive(false);
+        showingDictionaryDetail = true;
+        showingDictionary = false;
+    }
+
+    public void hideDictionaryDetail() {
+        dictionaryTitleText.text = "エンディング図鑑";
+        dictionaryDetailObj.SetActive(false);
+        dictionaryImgList.SetActive(true);
+        showingDictionaryDetail = false;
+        showingDictionary = true;
     }
 }

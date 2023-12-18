@@ -74,18 +74,11 @@ public class OutingEventManager : MonoBehaviour
         result.hp = effect.hp;
         result.time = effect.time;
         result.friendly = effect.friendly;
-        if (effect.power != 0)
-        {
-            result.power = effect.power * actions[0].getLv();
-        }
-        if (effect.intelligent != 0)
-        {
-            result.intelligent = effect.intelligent * actions[1].getLv();
-        }
-        if (effect.mental != 0)
-        {
-            result.mental = effect.mental * actions[2].getLv();
-        }
+
+        result.power = effect.power * actions[0].getLv();
+        result.intelligent = effect.intelligent * actions[1].getLv();
+        result.mental = effect.mental * actions[2].getLv();
+        
         return result;
     }
 }
