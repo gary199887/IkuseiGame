@@ -33,14 +33,14 @@ public class PlayerController : MonoBehaviour
 
             if (clickedGameObject != null && clickedGameObject.CompareTag("ButtonInTitleScene"))
             {
+                    button = clickedGameObject.GetComponent<MyButton>();
+                    Invoke("doButtonFunction", 0.2f);
 
-                button = clickedGameObject.GetComponent<MyButton>();
-                Invoke("doButtonFunction", 0.2f);
+                    TitleDirector.buttonClicked = true;
 
-                TitleDirector.buttonClicked = true;
-                
             }
-            //Debug.Log(clickedGameObject);   // print out in log
+            
+           //Debug.Log(clickedGameObject);   // print out in log
         }
     }
 

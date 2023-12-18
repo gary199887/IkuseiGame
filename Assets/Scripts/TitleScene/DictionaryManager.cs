@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DictionaryManager : MonoBehaviour
 {
     [SerializeField] SpriteRenderer[] endingImages;
-    [SerializeField] Sprite[] sprites;
+    [SerializeField] public Sprite[] sprites;
     [SerializeField] TitleDirector titleDirector;
     Bounds imgBounds;
-    EndingList endingList;
+    public EndingList endingList;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +21,21 @@ public class DictionaryManager : MonoBehaviour
                 endingImages[i].sprite = sprites[i];
                 float scale = resizeSprite(sprites[i]);
                 endingImages[i].gameObject.transform.localScale = new Vector2(scale, scale);
-                endingImages[i].gameObject.tag = "ClearedEnding";
+                endingImages[i].gameObject.tag = "ButtonInTitleScene";
+                endingImages[i].gameObject.GetComponent<BoxCollider2D>().size = new Vector2(1 / scale, 1 / scale);
             }
             else {
                 endingImages[i].sprite = sprites[sprites.Length - 1];
                 endingImages[i].gameObject.transform.localScale = new Vector2(1, 1);
                 endingImages[i].gameObject.tag = "Untagged";
+                endingImages[i].gameObject.GetComponent<BoxCollider2D>().size = new Vector2(1, 1);
             }
         }
     }
 
-    float resizeSprite(Sprite sprite) {
+    public float resizeSprite(Sprite sprite) {
         return imgBounds.size.x  / sprite.bounds.size.x; 
     }
+
+    
 }

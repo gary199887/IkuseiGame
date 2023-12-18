@@ -12,6 +12,7 @@ public class TitleDirector : CommonFunctions
     bool typingDone;
     public static bool buttonClicked;
     public static bool showingDictionary;
+    public static bool showingDictionaryDetail;
     string title = "The Seed: Origin";
     [SerializeField] Text titleText;
     [SerializeField] GameObject buttons;
@@ -19,6 +20,12 @@ public class TitleDirector : CommonFunctions
     [SerializeField] GameObject titleChara;
     [SerializeField] GameObject titleObj;
     [SerializeField] GameObject dictionaryObj;
+    [SerializeField] DictionaryManager dictionaryManager;
+    [SerializeField] GameObject dictionaryDetailObj;
+    [SerializeField] GameObject dictionaryImgList;
+    [SerializeField] Text dictionaryTitleText;
+    [SerializeField] Text dictionaryDetailText;
+    [SerializeField] SpriteRenderer dictionaryImg;
 
 
     // Start is called before the first frame update
@@ -30,6 +37,7 @@ public class TitleDirector : CommonFunctions
         buttons.SetActive(false);
         buttonClicked = false;
         dictionaryObj.SetActive(false);
+        dictionaryDetailObj.SetActive(false);
         showingDictionary = false;
     }
 
@@ -62,6 +70,10 @@ public class TitleDirector : CommonFunctions
             {
                 hideDictionary();
                 showTitle();
+            }
+            else if (showingDictionaryDetail) {
+                hideDictionaryDetail();
+                showDictionary();
             }
         }
     }
@@ -110,5 +122,30 @@ public class TitleDirector : CommonFunctions
     {
         showingDictionary = false;
         dictionaryObj.SetActive(false);
+    }
+
+    public void showDictionaryDetail(int id) {
+        Ending choosenEnding = dictionaryManager.endingList.endings[id];
+        dictionaryImg.sprite = dictionaryManager.sprites[id];
+        float scale = dictionaryManager.resizeSprite(dictionaryManager.sprites[id]) * 4.5f;
+        dictionaryImg.gameObject.transform.localScale = new Vector2(scale, scale);
+        string detailText = "";
+        foreach (string str in choosenEnding.description) 
+            detailText += str + "\n\n\n";
+        dictionaryDetailText.text = detailText;
+        dictionaryTitleText.text = choosenEnding.name;
+
+        dictionaryDetailObj.SetActive(true);
+        dictionaryImgList.SetActive(false);
+        showingDictionaryDetail = true;
+        showingDictionary = false;
+    }
+
+    public void hideDictionaryDetail() {
+        dictionaryTitleText.text = "エンディング図鑑";
+        dictionaryDetailObj.SetActive(false);
+        dictionaryImgList.SetActive(true);
+        showingDictionaryDetail = false;
+        showingDictionary = true;
     }
 }
