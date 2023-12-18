@@ -244,6 +244,54 @@
         "friendly": -20
       },
       "happened": false
+    },
+    {
+      "id": 15,
+      "name": "X:全て等しい",
+      "msg": [
+        "すべてが等しく美しい"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 25,
+        "intelligent": 25,
+        "mental": 25,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 16,
+      "name": "Y:Xを通った後、等しくなくなっている",
+      "msg": [
+        "等しくない、美しい姿はない"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 0,
+        "intelligent": 0,
+        "mental": 0,
+        "friendly": 0
+      },
+      "happened": false
+    },
+    {
+      "id": 17,
+      "name": "Z:Xが二回起きて、三週目も全て等しい",
+      "msg": [
+        "素晴らしい、究極で完璧な植物"
+      ],
+      "effect": {
+        "time": 0,
+        "hp": 0,
+        "power": 300,
+        "intelligent": 300,
+        "mental": 300,
+        "friendly": 0
+      },
+      "happened": false
     }
   ]
 }
