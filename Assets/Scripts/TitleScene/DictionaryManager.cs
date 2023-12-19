@@ -27,7 +27,7 @@ public class DictionaryManager : MonoBehaviour
             else {
                 endingImages[i].sprite = sprites[sprites.Length - 1];
                 endingImages[i].gameObject.transform.localScale = new Vector2(1, 1);
-                endingImages[i].gameObject.tag = "Untagged";
+                endingImages[i].gameObject.tag = "ButtonInTitleScene";
                 endingImages[i].gameObject.GetComponent<BoxCollider2D>().size = new Vector2(1, 1);
             }
         }
