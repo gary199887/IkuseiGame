@@ -31,6 +31,7 @@ public class TitleDirector : CommonFunctions
     // Start is called before the first frame update
     void Start()
     {
+        // Še•Ï”‰Šú‰»
         timeCount = 0;
         typingDone = false;
         titleText.text = keepTalking(title);

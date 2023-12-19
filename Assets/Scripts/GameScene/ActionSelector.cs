@@ -19,7 +19,7 @@ public class ActionSelector : MonoBehaviour
     void Start()
     {
         effect = null;
-        actions = new Action[]{ new Action("Throw"), new Action("Study"), new Action("Talk"), new Action("Out"), new Action("Medicine")};
+        actions = new Action[]{ new Action("Throw"), new Action("Study"), new Action("Talk"), new Action("Out"), new Action("Medicine"), new Action("Water")};
         doLvUp = -1;
     }
     public void onWateringButtonClicked() {     // 水やりボタンがクリックされた時呼び出すメソッド
@@ -29,7 +29,8 @@ public class ActionSelector : MonoBehaviour
         effect = new Effect(5, 30, 0, 0, 0, 1);
         gameDirector.changeParameter(effect);
         msg = new string[] { "水やりをした", effect.getPlusMsg(), effect.getMinusMsg()};
-       
+        actions[5].times++;
+
         dialogManager.showDialog(msg);
     }
 
