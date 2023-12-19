@@ -8,8 +8,9 @@ public class Ending
     public string name;
     public string[] description;
     public bool cleared;
+    public string hint;
 
-    public Ending(int id = 0, string name = "“ä‚ÌA•¨", string[] description = null, bool cleared = false) {
+    public Ending(int id = 0, string name = "“ä‚ÌA•¨", string[] description = null, bool cleared = false, string hint = "") {
         this.id = id;
         this.name = name;
         this.description = description;
