@@ -26,6 +26,8 @@ public class TitleDirector : CommonFunctions
     [SerializeField] Text dictionaryTitleText;
     [SerializeField] Text dictionaryDetailText;
     [SerializeField] SpriteRenderer dictionaryImg;
+    [SerializeField] GameObject hintObj;
+    [SerializeField] Text hintText;
 
 
     // Start is called before the first frame update
@@ -138,6 +140,7 @@ public class TitleDirector : CommonFunctions
 
         dictionaryDetailObj.SetActive(true);
         dictionaryImgList.SetActive(false);
+        hintObj.SetActive(false);
         showingDictionaryDetail = true;
         showingDictionary = false;
     }
@@ -146,7 +149,18 @@ public class TitleDirector : CommonFunctions
         dictionaryTitleText.text = "エンディング図鑑";
         dictionaryDetailObj.SetActive(false);
         dictionaryImgList.SetActive(true);
+        hintObj.SetActive(true);
         showingDictionaryDetail = false;
         showingDictionary = true;
+    }
+
+    public bool checkIfEndingCleared(int id) {
+        bool result = dictionaryManager.endingList.endings[id].cleared;
+        return result;
+    }
+
+    public void showHint(int id)
+    {
+        hintText.text = dictionaryManager.endingList.endings[id].hint;
     }
 }

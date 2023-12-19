@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TitleAudioManager : MonoBehaviour
@@ -28,7 +29,11 @@ public class TitleAudioManager : MonoBehaviour
     }
 
     public void playConfirmSE() {
-        if(!confirmSE.isPlaying)
+        if (!confirmSE.isPlaying)
             confirmSE.Play();
+        else {
+            confirmSE.Stop();
+            confirmSE.Play();
+        }
     }
 }
