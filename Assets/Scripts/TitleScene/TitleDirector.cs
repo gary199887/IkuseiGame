@@ -42,6 +42,7 @@ public class TitleDirector : CommonFunctions
         dictionaryObj.SetActive(false);
         dictionaryDetailObj.SetActive(false);
         showingDictionary = false;
+        hintText.text = "";
     }
 
     // Update is called once per frame
