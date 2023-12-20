@@ -72,10 +72,12 @@ public class TitleDirector : CommonFunctions
         {
             if (showingDictionary)
             {
+                titleAudioManager.playCancelSE();
                 hideDictionary();
                 showTitle();
             }
             else if (showingDictionaryDetail) {
+                titleAudioManager.playCancelSE();
                 hideDictionaryDetail();
                 showDictionary();
             }

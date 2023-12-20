@@ -20,7 +20,7 @@ public class DialogManager : MonoBehaviour
     [SerializeField] ResultDirector resultDirector;         // リザルトディレクター(リザルト画面のみ)
     [SerializeField] OutingEventManager outingEventManager;     // 散歩イベントマネージャー
     [SerializeField] GameDirector gameDirector;
-
+    [SerializeField] AudioSource talkSE;
 
     private void Start()
     {
@@ -132,9 +132,9 @@ public class DialogManager : MonoBehaviour
         bool result = keepTalking(talks[currentIndex]).Length == talks[currentIndex].Length;
         if (!result)
         {
-            //if (!talkSE.isPlaying) talkSE.Play();
+            if (!talkSE.isPlaying) talkSE.Play();
         }
-        //else talkSE.Stop();
+        else talkSE.Stop();
         return result;
     }
 
