@@ -108,7 +108,7 @@ public class ActionSelector : MonoBehaviour
         // ŽžŠÔ‚ðUI‚É”½‰f
         gameDirector.revealTimeUI();
 
-        if (GameDirector.chara.getHp() == 0) {
+        if (GameDirector.chara.getHp() == 0 && (GameDirector.currentDay < 29 ||  (GameDirector.currentDay == 28 && GameDirector.currentHour < 19))) {
             effect = new Effect(4, 20);
             effect.friendly = -10;
             gameDirector.changeParameter(effect);
