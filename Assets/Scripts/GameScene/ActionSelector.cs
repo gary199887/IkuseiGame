@@ -26,7 +26,7 @@ public class ActionSelector : MonoBehaviour
         closeButtons();
         string[] msg;
         SEAudio.Play();
-        effect = new Effect(5, 30, 0, 0, 0, 1);
+        effect = new Effect(5, 40, 0, 0, 0, 3);
         gameDirector.changeParameter(effect);
         msg = new string[] { "水やりをした", effect.getPlusMsg(), effect.getMinusMsg()};
         actions[5].times++;
@@ -127,8 +127,8 @@ public class ActionSelector : MonoBehaviour
     // 行動ごとの成功率を取得するメソッド
     int getSuccessPercentage(int actionId)
     {
-        // 基礎値　5 + HP + 行動レベル + 好感度
-        return Mathf.Clamp(5 + GameDirector.chara.getHp() + actions[actionId].getLv() * 2 + GameDirector.chara.getFriendly(), 0, 100);
+        // 好感度÷10＋HPの残量＋5 - 行動レベル*2
+        return Mathf.Clamp(5 + GameDirector.chara.getHp() - actions[actionId].getLv() * 2 + GameDirector.chara.getFriendly() / 10, 0, 100);
     }
 
     // 失敗することがある行動をとる時に呼び出すメソッド
@@ -170,7 +170,7 @@ public class ActionSelector : MonoBehaviour
         else    // 行動失敗処理
         {
             // 時間経過。体力、好感度減算
-            effect = new Effect(3, -20, 0, 0, 0, 0);
+            effect = new Effect(5, -20, 0, 0, 0, -3);
             // エフェクトのパラメータに対応したキャラステータス変更処理
             gameDirector.changeParameter(effect);
             actionMsg = "行動に失敗した";
