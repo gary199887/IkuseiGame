@@ -107,6 +107,14 @@ public class ActionSelector : MonoBehaviour
 
         // 時間をUIに反映
         gameDirector.revealTimeUI();
+
+        if (GameDirector.chara.getHp() == 0) {
+            effect = new Effect(4, 20);
+            effect.friendly = -10;
+            gameDirector.changeParameter(effect);
+            string[] msg = new string[] {"HPがゼロになって行動不能になった", "好感度が下がった", "4時間休憩した..."};
+            dialogManager.showDialog(msg);
+        }
     }
 
     // 抽選（パーセンテージ）メソッド
