@@ -8,6 +8,7 @@ public class TitleAudioManager : MonoBehaviour
     [SerializeField] AudioSource bgm;
     [SerializeField] AudioSource keyboardSE;
     [SerializeField] AudioSource confirmSE;
+    [SerializeField] AudioSource cancelSE;
 
     public void playBGM() {
         if(!bgm.isPlaying)
@@ -34,6 +35,16 @@ public class TitleAudioManager : MonoBehaviour
         else {
             confirmSE.Stop();
             confirmSE.Play();
+        }
+    }
+
+    public void playCancelSE() {
+        if (!cancelSE.isPlaying)
+            cancelSE.Play();
+        else
+        {
+            cancelSE.Stop();
+            cancelSE.Play();
         }
     }
 }
