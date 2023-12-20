@@ -4,7 +4,7 @@
       "id": 0,
       "name": "A",
       "msg": [
-        "筋力が高い様子"
+        "筋力が高い様子だ"
       ],
       "effect": {
         "time": 0,
@@ -57,12 +57,12 @@
       "id": 3,
       "name": "A1",
       "msg": [
-        "筋力が成長している"
+        "筋力が順調に成長している"
       ],
       "effect": {
         "time": 0,
         "hp": 0,
-        "power": 20,
+        "power": 30,
         "intelligent": 0,
         "mental": 0,
         "friendly": 0
@@ -78,7 +78,7 @@
       "effect": {
         "time": 0,
         "hp": 0,
-        "power": -20,
+        "power": -30,
         "intelligent": 0,
         "mental": 0,
         "friendly": 0
@@ -89,13 +89,13 @@
       "id": 5,
       "name": "B1",
       "msg": [
-        "知力が成長している"
+        "知力が順調に成長している"
       ],
       "effect": {
         "time": 0,
         "hp": 0,
         "power": 0,
-        "intelligent": 20,
+        "intelligent": 30,
         "mental": 0,
         "friendly": 0
       },
@@ -111,7 +111,7 @@
         "time": 0,
         "hp": 0,
         "power": 0,
-        "intelligent": -20,
+        "intelligent": -30,
         "mental": 0,
         "friendly": 0
       },
@@ -121,14 +121,14 @@
       "id": 7,
       "name": "C1",
       "msg": [
-        "メンタルが成長している"
+        "メンタルが順調に成長している"
       ],
       "effect": {
         "time": 0,
         "hp": 0,
         "power": 0,
         "intelligent": 0,
-        "mental": 20,
+        "mental": 30,
         "friendly": 0
       },
       "happened": false
@@ -144,7 +144,7 @@
         "hp": 0,
         "power": 0,
         "intelligent": 0,
-        "mental": -20,
+        "mental": -30,
         "friendly": 0
       },
       "happened": false
@@ -158,7 +158,7 @@
       "effect": {
         "time": 0,
         "hp": 0,
-        "power": 10,
+        "power": 20,
         "intelligent": 0,
         "mental": 0,
         "friendly": 20
@@ -191,7 +191,7 @@
         "time": 0,
         "hp": 0,
         "power": 0,
-        "intelligent": 10,
+        "intelligent": 20,
         "mental": 0,
         "friendly": 20
       },
@@ -223,7 +223,7 @@
         "time": 0,
         "hp": 0,
         "power": 0,
-        "intelligent": 10,
+        "intelligent": 20,
         "mental": 0,
         "friendly": 20
       },
@@ -254,9 +254,9 @@
       "effect": {
         "time": 0,
         "hp": 0,
-        "power": 25,
-        "intelligent": 25,
-        "mental": 25,
+        "power": 200,
+        "intelligent": 200,
+        "mental": 200,
         "friendly": 0
       },
       "happened": false
@@ -286,9 +286,9 @@
       "effect": {
         "time": 0,
         "hp": 0,
-        "power": 300,
-        "intelligent": 300,
-        "mental": 300,
+        "power": 777,
+        "intelligent": 777,
+        "mental": 777,
         "friendly": 0
       },
       "happened": false
