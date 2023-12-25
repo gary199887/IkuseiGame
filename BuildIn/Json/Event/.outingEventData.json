@@ -7,9 +7,9 @@
       "effect": {
         "time": 6,
         "hp": 10,
-        "power": 15,
+        "power": 6,
         "intelligent": 0,
-        "mental": -15,
+        "mental": -4,
         "friendly": 15
       }
     },
@@ -21,8 +21,8 @@
         "time": 6,
         "hp": 30,
         "power": 0,
-        "intelligent": 15,
-        "mental": 15,
+        "intelligent": 6,
+        "mental": 6,
         "friendly": 15
       }
     },
@@ -33,9 +33,9 @@
       "effect": {
         "time": 6,
         "hp": 10,
-        "power": -15,
-        "intelligent": -15,
-        "mental": -15,
+        "power": -4,
+        "intelligent": -4,
+        "mental": -4,
         "friendly": 15
       }
     },
@@ -47,8 +47,8 @@
         "time": 6,
         "hp": 20,
         "power": 0,
-        "intelligent": 15,
-        "mental": 15,
+        "intelligent": 6,
+        "mental": 6,
         "friendly": 15
       }
     },
@@ -59,9 +59,9 @@
       "effect": {
         "time": 6,
         "hp": 30,
-        "power": 15,
-        "intelligent": -15,
-        "mental": -15,
+        "power": 6,
+        "intelligent": -4,
+        "mental": -4,
         "friendly": 15
       }
     },
@@ -72,7 +72,7 @@
       "effect": {
         "time": 6,
         "hp": 20,
-        "power": 15,
+        "power": 6,
         "intelligent": 0,
         "mental": 0,
         "friendly": 15
@@ -85,8 +85,8 @@
       "effect": {
         "time": 6,
         "hp": 20,
-        "power": -15,
-        "intelligent": 15,
+        "power": -4,
+        "intelligent": 6,
         "mental": 0,
         "friendly": 15
       }
@@ -98,9 +98,9 @@
       "effect": {
         "time": 6,
         "hp": 20,
-        "power": -15,
-        "intelligent": -15,
-        "mental": 15,
+        "power": -4,
+        "intelligent": -4,
+        "mental": 6,
         "friendly": 15
       }
     },
@@ -111,9 +111,9 @@
       "effect": {
         "time": 6,
         "hp": 30,
-        "power": 15,
-        "intelligent": 15,
-        "mental": 15,
+        "power": 6,
+        "intelligent": 6,
+        "mental": 6,
         "friendly": 15
       }
     },
@@ -124,9 +124,9 @@
       "effect": {
         "time": 6,
         "hp": 10,
-        "power": 15,
+        "power": 6,
         "intelligent": 0,
-        "mental": -15,
+        "mental": -4,
         "friendly": 15
       }
     }
