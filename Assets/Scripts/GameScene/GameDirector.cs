@@ -13,7 +13,7 @@ public class GameDirector : MonoBehaviour
     bool randomEventHappended;              // ランダムイベントが発生したかどうか(false時発生させる)
     [SerializeField] Text statusText;       // ステータスのUIテキスト
     [SerializeField] Text timeText;         // 日時のUIテキスト
-    [SerializeField] Text friendlyText;     // デバッグ用好感度表示
+    //[SerializeField] Text friendlyText;     // デバッグ用好感度表示
     [SerializeField] DialogManager dialogManager;
     [SerializeField] ActionSelector actionSelector;
     [SerializeField] HintManager hintManager;
@@ -50,7 +50,7 @@ public class GameDirector : MonoBehaviour
 
     public void changeParameter(Effect effect) {
         chara.doEffect(effect);
-        friendlyText.text = $"{chara.getFriendly()}";
+        //friendlyText.text = $"{chara.getFriendly()}";
         hintManager.showEffectHint(effect);
     }
 
