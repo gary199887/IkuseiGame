@@ -128,6 +128,7 @@ public class TitleDirector : CommonFunctions
     {
         showingDictionary = false;
         dictionaryObj.SetActive(false);
+        hintText.text = "";
     }
 
     public void showDictionaryDetail(int id) {
@@ -155,6 +156,7 @@ public class TitleDirector : CommonFunctions
         hintObj.SetActive(true);
         showingDictionaryDetail = false;
         showingDictionary = true;
+        hintText.text = "";
     }
 
     public bool checkIfEndingCleared(int id) {

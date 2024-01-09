@@ -27,4 +27,10 @@ public class EndingList {
     public EndingList() {
         endings = new List<Ending>();
     }
+
+    public void setAll(bool cleared) {
+        for (int i = 0; i < endings.Count; ++i) {
+            endings[i].cleared = cleared;
+        }
+    }
 }
