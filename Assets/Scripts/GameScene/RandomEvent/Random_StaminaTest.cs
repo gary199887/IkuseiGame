@@ -11,7 +11,7 @@ public class Random_StaminaTest : RandomEvent
         msg.Add("体力テストを受けた");
         if (chara.getPower() >= (2 * actionLv + GameDirector.currentDay) * 25)
         {
-            result.power = 5 * actionLv;
+            result.power = 6 * actionLv;
             msg.Add("テスト器具の測定可能範囲を超えた");
         }
         else if (chara.getPower() >= (2 * actionLv + GameDirector.currentDay / 4 * 3) * 25)
