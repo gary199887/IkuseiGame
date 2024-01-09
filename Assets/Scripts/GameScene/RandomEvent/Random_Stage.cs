@@ -12,7 +12,7 @@ public class Random_Stage : RandomEvent
         msg.Add("•‘‘ä‚Éo‰‰‚µ‚½");
         if (chara.getMental() >= (2 * actionLv + GameDirector.currentDay) * 25)
         {
-            result.mental = 5 * actionLv;
+            result.mental = 6 * actionLv;
             msg.Add("‰‚ß‚Ä‚È‚Ì‚É‚Ü‚é‚Åƒxƒeƒ‰ƒ“‚Ì‚æ‚¤‚È—Ž‚¿’…‚«‚æ‚¤‚¾");
         }
         else if (chara.getMental() >= (2 * actionLv + GameDirector.currentDay / 4 * 3) * 25)

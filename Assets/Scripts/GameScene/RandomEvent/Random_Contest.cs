@@ -11,9 +11,9 @@ public class Random_Contest : RandomEvent
         int totalStatus = chara.getPower() + chara.getIntelligent() + chara.getMental();
         if (totalStatus >= GameDirector.currentDay * 55)
         {
-            result.power = 5 * actions[0].getLv();
-            result.intelligent = 5 * actions[1].getLv();
-            result.mental = 5 * actions[2].getLv();
+            result.power = 6 * actions[0].getLv();
+            result.intelligent = 6 * actions[1].getLv();
+            result.mental = 6 * actions[2].getLv();
             msg.Add("Å—DGÜ‚ðŽæ‚Á‚½");
         }
         else if (totalStatus >= GameDirector.currentDay * 45)

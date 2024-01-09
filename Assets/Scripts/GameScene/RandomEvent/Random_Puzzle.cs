@@ -13,7 +13,7 @@ public class Random_Puzzle : RandomEvent
         msg.Add("ƒpƒYƒ‹‚ð‰ð‚¢‚Ä‚Ý‚½");
         if (chara.getIntelligent() >= (2 * actionLv + GameDirector.currentDay) * 25)
         {
-            result.intelligent = 5 * actionLv;
+            result.intelligent = 6 * actionLv;
             msg.Add("‚Ù‚Æ‚ñ‚ÇŽžŠÔ‚©‚©‚ç‚È‚©‚Á‚½");
         }
         else if (chara.getIntelligent() >= (2 * actionLv + GameDirector.currentDay / 4 * 3) * 25)
