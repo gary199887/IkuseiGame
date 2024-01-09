@@ -47,4 +47,12 @@ public class DebugButton : MonoBehaviour
     public void onAverageClicked() {
         gameDirector.debugStatusAverage();
     }
+
+    public void onHPPlusClicked() {
+        gameDirector.debugStatus(4, 0, 10);
+    }
+
+    public void onHPMinusClicked(){
+        gameDirector.debugStatus(4, 1, 10);
+    }
 }
