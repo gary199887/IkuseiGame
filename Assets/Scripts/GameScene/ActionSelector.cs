@@ -30,7 +30,7 @@ public class ActionSelector : MonoBehaviour
         gameDirector.changeParameter(effect);
         msg = new string[] { "水やりをした", effect.getPlusMsg(), effect.getMinusMsg()};
         actions[5].times++;
-
+        gameDirector.debugChangeActionTimes();
         dialogManager.showDialog(msg);
     }
 
@@ -61,6 +61,7 @@ public class ActionSelector : MonoBehaviour
         dialogManager.showDialog(msg);
         SEAudio.Play();
         actions[4].times++;
+        gameDirector.debugChangeActionTimes();
     }
 
     public void onTalkingButtonClicked()    //　会話ボタンがクリックされた時呼び出すメソッド
@@ -72,6 +73,7 @@ public class ActionSelector : MonoBehaviour
     public void onOutingButtonClicked()     //　外出ボタンがクリックされた時呼び出すメソッド
     {
         actions[3].times++;
+        gameDirector.debugChangeActionTimes();
         outingEventManager.DoOutingEvent(actions);
         SEAudio.Play();
     }
@@ -160,6 +162,7 @@ public class ActionSelector : MonoBehaviour
 
             // 行動回数追加、レベルアップチェック
             string lvUpMsg = actions[(int)actionName].doAction();
+            gameDirector.debugChangeActionTimes();
             // エフェクトのパラメータに対応したキャラステータス変更処理
             gameDirector.changeParameter(effect);            
 

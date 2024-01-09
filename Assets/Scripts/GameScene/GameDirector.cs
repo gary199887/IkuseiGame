@@ -1,6 +1,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class GameDirector : MonoBehaviour
 {
@@ -14,11 +15,15 @@ public class GameDirector : MonoBehaviour
     [SerializeField] Text statusText;       // ステータスのUIテキスト
     [SerializeField] Text timeText;         // 日時のUIテキスト
     [SerializeField] Text friendlyText;     // デバッグ用好感度表示
+    [SerializeField] Text actionTimeText;   // デバッグ用行動回数表示
     [SerializeField] DialogManager dialogManager;
     [SerializeField] ActionSelector actionSelector;
     [SerializeField] HintManager hintManager;
     [SerializeField] FixedEventManager fixedEventManager;
     [SerializeField] RandomEventManager randomEventManager;
+    [SerializeField] GameObject debugButtons;
+    int cheatButtonClickedTime;
+    float timeCount;
     
     void Start()
     {
@@ -26,11 +31,15 @@ public class GameDirector : MonoBehaviour
         currentDay = 1;
         currentHour = 8;
         gameOver = false;
-        changeParameter(new Effect());
+        //changeParameter(new Effect());
         revealStatusInUI();
         revealTimeUI();
         actionSelector.effect = null;
         randomEventHappended = true;
+        debugButtons.SetActive(false);
+        cheatButtonClickedTime = 0;
+        timeCount = 0;
+        actionTimeText.text = "行動回数：水0　投0　勉0　話0　外0　薬0";
 
         // load json files
         FixedEventList fixedEventList = FixedEventIO.loadFixedEvent();
@@ -46,6 +55,21 @@ public class GameDirector : MonoBehaviour
     void Update()
     {
         CommonFunctions.endGameWithEsc();
+        
+        // "C"キー三回連打でデバッグボタン出現/消失
+        if (cheatButtonClickedTime > 0) timeCount += Time.deltaTime;
+        if (timeCount > 0.7f) {
+            cheatButtonClickedTime = 0;
+            timeCount = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.C)) {
+            cheatButtonClickedTime++;
+            timeCount = 0;
+            if (cheatButtonClickedTime >= 3) {
+                cheatButtonClickedTime = 0;
+                debugButtons.SetActive(!debugButtons.activeSelf);
+            }
+        }
     }
 
     public void changeParameter(Effect effect) {
@@ -141,7 +165,7 @@ public class GameDirector : MonoBehaviour
     {
         Effect effect = new Effect();
         switch (status) {
-            // status : 0->好感度   1->筋力   2->知力   3->メンタル
+            // status : 0->好感度   1->筋力   2->知力   3->メンタル   4->HP
             // mode:    0->加算   0以外->減算
             // value:   加算/減算する値
             case 0:
@@ -168,6 +192,12 @@ public class GameDirector : MonoBehaviour
                 else
                     effect.mental = -value;
                 break;
+            case 4:
+                if(mode == 0)
+                    effect.hp = value;
+                else
+                    effect.hp = -value;
+                break;
         }
 
         // 影響を適用
@@ -188,4 +218,9 @@ public class GameDirector : MonoBehaviour
         dialogManager.showDialog(new string[] { "ステータスは平均化された" });
     }
 
+    public void debugChangeActionTimes() {
+        Action[] actions = ActionSelector.actions;
+        string text = $"行動回数：水{actions[5].times}　投{actions[0].times}　勉{actions[1].times}　話{actions[2].times}　外{actions[3].times}　薬{actions[4].times}";
+        actionTimeText.text = text;
+    }
 }
