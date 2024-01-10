@@ -130,7 +130,7 @@ public class ActionSelector : MonoBehaviour
     int getSuccessPercentage(int actionId)
     {
         // 好感度÷10＋HPの残量＋5 - 行動レベル*2
-        return Mathf.Clamp(5 + GameDirector.chara.getHp() - actions[actionId].getLv() * 2 + GameDirector.chara.getFriendly() / 10, 0, 100);
+        return Mathf.Clamp((int)(1.1f*GameDirector.chara.getHp()) - actions[actionId].getLv() * 2 + GameDirector.chara.getFriendly() / 10, 0, 100);
     }
 
     // 失敗することがある行動をとる時に呼び出すメソッド
