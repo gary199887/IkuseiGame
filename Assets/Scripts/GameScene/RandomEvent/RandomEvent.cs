@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 
+[System.Serializable]
 public class RandomEvent
 {
     public int id;              // 画像データ差し替え用

@@ -1,6 +1,7 @@
 using System;
 using UnityEditor;
 
+[System.Serializable]
 public class Chara
 {
     // ƒvƒŒƒCƒ„‚ÉŠJ¦‚·‚éî•ñ ‰ºŒÀ0, ãŒÀ‚Ü‚¾Œˆ‚ß‚Ä‚È‚¢
@@ -118,5 +119,14 @@ public class Chara
 
     public int getMinFriendly() {
         return minFriendly;
+    }
+
+    public void load(Status status)
+    {
+        this.hp = status.hp;
+        this.power = status.power;
+        this.intelligent = status.intelligent;
+        this.mental = status.mental;
+        this.friendly = status.friendly;
     }
 }

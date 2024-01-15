@@ -7,8 +7,8 @@ public class RandomEventManager : MonoBehaviour
     [SerializeField] GameDirector gameDirector;
     [SerializeField] ActionSelector actionSelector;
     [SerializeField] DialogManager dialogManager;
-    List<RandomEvent> randomEvents;             // 発生予定ランダムイベントバッファー
-
+    public static List<RandomEvent> randomEvents;             // 発生予定ランダムイベントバッファー
+    
     private void Start()
     {
         // 各種ランダムイベントをバッファーに追加
