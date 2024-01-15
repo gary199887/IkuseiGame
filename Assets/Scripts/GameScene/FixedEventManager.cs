@@ -144,7 +144,71 @@ public class FixedEventManager : MonoBehaviour
         }
 
     }
+    public void loadEventImg(int day,int route) 
+    {
+        //‰è‚É‚È‚éðŒ
+        if (day >= 7&&day<=14)
+        {
+            switch (route)
+            {
+                case 0:
+                    showEventImg(sprites[0]);
+                    break;
+                case 1:
+                    showEventImg(sprites[1]);
+                    break;
+                case 2:
+                    showEventImg(sprites[2]);
+                    break;
+                case 3:
+                    showEventImg(sprites[2]);
+                    break;
+            }
+        }
+        //‚Â‚Ú‚Ý‚É‚È‚éðŒ
+        else if(day >= 15 && day <= 21)
+        {
+            switch (route)
+            {
+                case 0:
+                    showEventImg(sprites[3]);
+                    break;
+                case 1:
+                    showEventImg(sprites[5]);
+                    break;
+                case 2:
+                    showEventImg(sprites[7]);
+                    break;
+                case 3:
+                    showEventImg(sprites[7]);
+                    break;
+            }
+       }
+        
+        
+        //‰Ô‚É‚È‚éðŒ
+        else if(day >= 22)
+        {
+            switch (route)
+            {
 
+                case 0:
+                    showEventImg(sprites[9]);
+                    break;
+                case 1:
+                    showEventImg(sprites[11]);
+                    break;
+                case 2:
+                    showEventImg(sprites[13]);
+                    break;
+                case 3:
+                    showEventImg(sprites[13]);
+                    break;
+            }
+        }
+
+
+    }
     public void showEventImg(Sprite img)
     {
         eventImg.sprite = img;
