@@ -19,6 +19,6 @@ public class SaveManager : MonoBehaviour
         saveData.route = FixedEventManager.route;
         saveData.charaSpriteId = FixedEventManager.currentSpriteId;
         SaveIO.DataSave(saveData);
-        dialogManager.showDialog(new string[] { "ゲームがせーぶされました" });
+        dialogManager.showDialog(new string[] { "ゲームがセーブされました" });
     }
 }
