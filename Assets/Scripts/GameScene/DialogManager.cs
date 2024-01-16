@@ -31,8 +31,12 @@ public class DialogManager : MonoBehaviour
         skipped = false;
         if (resultDirector != null)
             resultDirector.showResultMsg();
-        else if (actionSelector != null)
-            gameDirector.showStartMsg();
+        else if (actionSelector != null) {
+            if (!GameDirector.loadGame)
+                gameDirector.showStartMsg();
+            else
+                gameDirector.showLoadMsg();
+                }
     }
 
     private void Update()

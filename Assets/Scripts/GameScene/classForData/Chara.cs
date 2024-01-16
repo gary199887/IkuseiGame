@@ -50,6 +50,14 @@ public class Chara
         friendly= copyFrom.friendly;
     }
 
+    public Chara(Status status) {
+        hp = status.hp;
+        power = status.power;
+        intelligent = status.intelligent;
+        mental= status.mental;
+        friendly= status.friendly;
+    }
+
     public void doEffect(Effect effect) {      // 影響したステータスの加算
         // 変更前の数値を保存
         int beforeHP = hp;

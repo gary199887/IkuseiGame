@@ -9,6 +9,7 @@ public class FixedEventManager : MonoBehaviour
     [SerializeField] SpriteRenderer eventImg;           // 画像データ代入用
     public static int route;                            // ルート（初期値-1、一回目の固定イベントでルート決定(0 ~ 2)）
     int thisTime;
+    public static int currentSpriteId = -1;
     void Start()
     {
         route = -1;
@@ -126,19 +127,25 @@ public class FixedEventManager : MonoBehaviour
         }
         actionSelector.effect = fixedEvent.effect.plusEffect(new Effect(4, 20));    // イベントの影響に日付経過の影響を追加（4時間経過、HP＋20）
         if (fixedEvent.id < 15)
+        {
             showEventImg(sprites[fixedEvent.id]);
+            currentSpriteId = fixedEvent.id;
+        }
         else
         {
             switch (thisTime)
             {
                 case 1:
                     showEventImg(sprites[2]);
+                    currentSpriteId = 2;
                     break;
                 case 2:
                     showEventImg(sprites[8]);
+                    currentSpriteId = 8;
                     break;
                 case 3:
                     showEventImg(sprites[14]);
+                    currentSpriteId = 14;
                     break;
             }
         }
@@ -212,6 +219,12 @@ public class FixedEventManager : MonoBehaviour
     public void showEventImg(Sprite img)
     {
         eventImg.sprite = img;
+        eventImg.gameObject.SetActive(true);
+    }
+
+    public void changeSprite(int id) {
+        currentSpriteId = id;
+        eventImg.sprite = sprites[id];
         eventImg.gameObject.SetActive(true);
     }
 

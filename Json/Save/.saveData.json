@@ -1,1 +1,113 @@
-{"status":{"hp":100,"power":50,"intelligent":50,"mental":50,"friendly":0},"actions":[{"name":"Throw","times":0,"lv":1,"lvUp":[4,8,12,16]},{"name":"Study","times":0,"lv":1,"lvUp":[4,8,12,16]},{"name":"Talk","times":0,"lv":1,"lvUp":[4,8,12,16]},{"name":"Out","times":0,"lv":1,"lvUp":[4,8,12,16]},{"name":"Medicine","times":0,"lv":1,"lvUp":[4,8,12,16]},{"name":"Water","times":0,"lv":1,"lvUp":[4,8,12,16]}],"nowDay":1,"nowHour":8,"events":[{"id":4,"msg":[]},{"id":5,"msg":[]},{"id":6,"msg":[]},{"id":7,"msg":[]},{"id":2,"msg":[]},{"id":3,"msg":[]},{"id":1,"msg":[]},{"id":0,"msg":[]}],"route":-1}
+{
+  "status": {
+    "hp": 20,
+    "power": 58,
+    "intelligent": 102,
+    "mental": 70,
+    "friendly": 0
+  },
+  "actions": [
+    {
+      "name": "Throw",
+      "times": 4,
+      "lv": 2,
+      "lvUp": [
+        4,
+        8,
+        12,
+        16
+      ]
+    },
+    {
+      "name": "Study",
+      "times": 4,
+      "lv": 2,
+      "lvUp": [
+        4,
+        8,
+        12,
+        16
+      ]
+    },
+    {
+      "name": "Talk",
+      "times": 1,
+      "lv": 1,
+      "lvUp": [
+        4,
+        8,
+        12,
+        16
+      ]
+    },
+    {
+      "name": "Out",
+      "times": 4,
+      "lv": 1,
+      "lvUp": [
+        4,
+        8,
+        12,
+        16
+      ]
+    },
+    {
+      "name": "Medicine",
+      "times": 0,
+      "lv": 1,
+      "lvUp": [
+        4,
+        8,
+        12,
+        16
+      ]
+    },
+    {
+      "name": "Water",
+      "times": 2,
+      "lv": 1,
+      "lvUp": [
+        4,
+        8,
+        12,
+        16
+      ]
+    }
+  ],
+  "nowDay": 8,
+  "nowHour": 6,
+  "events": [
+    {
+      "id": 4,
+      "msg": [
+      ]
+    },
+    {
+      "id": 5,
+      "msg": [
+      ]
+    },
+    {
+      "id": 7,
+      "msg": [
+      ]
+    },
+    {
+      "id": 2,
+      "msg": [
+      ]
+    },
+    {
+      "id": 3,
+      "msg": [
+      ]
+    },
+    {
+      "id": 1,
+      "msg": [
+      ]
+    }
+  ],
+  "route": 1,
+  "charaSpriteId": 1
+}
