@@ -19,6 +19,8 @@ public class SaveData
     //ƒLƒƒƒ‰‚Ìƒ‹[ƒg
     public int route;
 
+    public int charaSpriteId;
+
     
 }
 

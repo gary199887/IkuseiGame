@@ -12,6 +12,7 @@ public class GameDirector : MonoBehaviour
     const int maxHour = 23;                 // 時間上限
     const int maxDay = 28;                  // 日数上限
     bool randomEventHappended;              // ランダムイベントが発生したかどうか(false時発生させる)
+    public static bool loadGame = false;
     [SerializeField] Text statusText;       // ステータスのUIテキスト
     [SerializeField] Text timeText;         // 日時のUIテキスト
     [SerializeField] Text friendlyText;     // デバッグ用好感度表示
@@ -22,9 +23,10 @@ public class GameDirector : MonoBehaviour
     [SerializeField] FixedEventManager fixedEventManager;
     [SerializeField] RandomEventManager randomEventManager;
     [SerializeField] GameObject debugButtons;
+    [SerializeField] LoadManager loadManager;
     int cheatButtonClickedTime;
     float timeCount;
-    
+
     void Start()
     {
         chara = new Chara();
@@ -39,6 +41,7 @@ public class GameDirector : MonoBehaviour
         debugButtons.SetActive(false);
         cheatButtonClickedTime = 0;
         timeCount = 0;
+        friendlyText.text = $"{chara.getFriendly()}";
         actionTimeText.text = "行動回数：水0　投0　勉0　話0　外0　薬0";
 
         // load json files
@@ -47,7 +50,7 @@ public class GameDirector : MonoBehaviour
 
         EndingList endingList = EndingIO.loadEnding();
         EndingManager.setEngindList(endingList);
-       
+
         OutingEventList outingEventList = OutingEventDataIO.LoadOutingEvent();
         OutingEventManager.SetOutingEvent(outingEventList);
     }
@@ -55,7 +58,16 @@ public class GameDirector : MonoBehaviour
     void Update()
     {
         CommonFunctions.endGameWithEsc();
-        
+        if (loadGame) {
+            actionSelector.effect = new Effect();
+            loadManager.load();
+            friendlyText.text = $"{chara.getFriendly()}";
+            debugChangeActionTimes();
+            Debug.Log("gameloaded");
+
+            loadGame = false;
+        }
+
         // "C"キー三回連打でデバッグボタン出現/消失
         if (cheatButtonClickedTime > 0) timeCount += Time.deltaTime;
         if (timeCount > 0.7f) {
@@ -110,16 +122,16 @@ public class GameDirector : MonoBehaviour
             if (currentDay % 7 == 1) {  // 固定イベント発生（7日目～8日目、14日目～15日目、21日目～22日目）
                 fixedEventManager.occurFixedEvent(currentDay);
             }
-            else { 
+            else {
                 dialogManager.showDialog(new string[] { "日が変わった", "4時間休憩した..." });
             }
 
-            if (currentDay % 4 == 0 && currentDay < maxDay){   // ランダムイベントの発生日（4日目、8日目、12日目、16日目、20日目、24日目）
+            if (currentDay % 4 == 0 && currentDay < maxDay) {   // ランダムイベントの発生日（4日目、8日目、12日目、16日目、20日目、24日目）
                 randomEventHappended = false;
             }
 
             changeParameter(actionSelector.effect);
-           
+
             return true;
         }
 
@@ -148,6 +160,11 @@ public class GameDirector : MonoBehaviour
         ResultDirector.ending = EndingManager.chooseEnding(chara, ActionSelector.actions);
         EndingManager.saveEndingList();
         SceneManager.LoadScene("ResultScene");
+    }
+
+    public void showLoadMsg() {
+        string[] startMsg = new string[] {"ゲームがロードされました" };
+        dialogManager.showDialog(startMsg);
     }
 
 

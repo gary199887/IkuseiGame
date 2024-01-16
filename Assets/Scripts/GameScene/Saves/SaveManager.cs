@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class SaveManager : MonoBehaviour
 {
+    [SerializeField] DialogManager dialogManager;
     public void save()
     {
         SaveData saveData = new SaveData();
@@ -16,6 +17,8 @@ public class SaveManager : MonoBehaviour
         saveData.nowHour= GameDirector.currentHour;
         saveData.events = RandomEventManager.randomEvents;
         saveData.route = FixedEventManager.route;
+        saveData.charaSpriteId = FixedEventManager.currentSpriteId;
         SaveIO.DataSave(saveData);
+        dialogManager.showDialog(new string[] { "ÉQÅ[ÉÄÇ™ÇπÅ[Ç‘Ç≥ÇÍÇ‹ÇµÇΩ" });
     }
 }
