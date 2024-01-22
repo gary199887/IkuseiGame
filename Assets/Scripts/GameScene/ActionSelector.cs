@@ -12,6 +12,7 @@ public class ActionSelector : MonoBehaviour
     [SerializeField] HintManager hintManager;
     [SerializeField] OutingEventManager outingEventManager;     // 外出イベント用マネージャーobj
     [SerializeField] AudioSource SEAudio;   //SE用AudioSource
+    [SerializeField] CharaMotionManager charaMotionManager;
     public Effect effect;                           // 行動に起こされた変化
     enum actionWithLv { 投げつける, 勉強させる, 話しかける };      // 行動レベルのある行動名(失敗する可能性がある)
     public static Action[] actions;  // 行動Lv計算用(投げつけ、勉強、話しかける)
@@ -33,6 +34,7 @@ public class ActionSelector : MonoBehaviour
         actions[5].times++;
         gameDirector.debugChangeActionTimes();
         dialogManager.showDialog(msg);
+        charaMotionManager.moveChara();
     }
 
 
@@ -63,6 +65,7 @@ public class ActionSelector : MonoBehaviour
         SEAudio.Play();
         actions[4].times++;
         gameDirector.debugChangeActionTimes();
+        charaMotionManager.moveChara();
     }
 
     public void onTalkingButtonClicked()    //　会話ボタンがクリックされた時呼び出すメソッド
@@ -185,6 +188,7 @@ public class ActionSelector : MonoBehaviour
         }
         // メッセージをダイアログに表示
         dialogManager.showDialog(msg);
+        charaMotionManager.moveChara();
     }
 
     public void endGame() {
