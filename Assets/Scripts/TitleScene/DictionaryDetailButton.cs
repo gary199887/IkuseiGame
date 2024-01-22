@@ -17,4 +17,9 @@ public class DictionaryDetailButton : MonoBehaviour, MyButton
         else
             titleDirector.showHint(endingNum);
     }
+
+    public void onPointing()
+    {
+
+    }
 }
