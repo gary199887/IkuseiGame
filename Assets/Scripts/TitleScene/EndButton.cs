@@ -12,4 +12,9 @@ public class EndButton : MonoBehaviour, MyButton
                 Application.Quit();                                 // end game
     #endif
     }
+
+    public void onPointing()
+    {
+        transform.position.Set(transform.position.x, transform.position.y - 0.2f, transform.position.z);
+    }
 }

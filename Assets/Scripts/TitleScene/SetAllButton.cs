@@ -30,4 +30,10 @@ public class SetAllButton : MonoBehaviour, MyButton
         EndingIO.saveEnding(dictionaryManager.endingList);
         dictionaryManager.Start();
     }
+
+    public void onPointing()
+    {
+
+
+    }
 }
