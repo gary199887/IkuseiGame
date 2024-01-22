@@ -7,6 +7,7 @@ public class ActionSelector : MonoBehaviour
 {
     [SerializeField] DialogManager dialogManager;   // ダイアログ表示用のマネージャーObj
     [SerializeField] GameObject buttons;            // ボタン全体、ボタンon/off切り替え用GameObj
+    [SerializeField] GameObject menuButton;         // メニューボタン
     [SerializeField] GameDirector gameDirector;     // パラメーター変更用GameDirector Obj
     [SerializeField] HintManager hintManager;
     [SerializeField] OutingEventManager outingEventManager;     // 外出イベント用マネージャーobj
@@ -81,11 +82,13 @@ public class ActionSelector : MonoBehaviour
     // 行動選択ボタンを消す
     public void closeButtons() { 
         buttons.SetActive(false);
+        menuButton.SetActive(false);
     }
 
     // 行動選択ボタンを戻す
     public void showButtons() {
         buttons.SetActive(true);
+        menuButton.SetActive(true);
     }
 
     // 行動選択後のダイアログ閉じる時に呼び出すメソッド

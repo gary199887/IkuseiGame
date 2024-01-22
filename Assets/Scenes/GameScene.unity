@@ -6132,6 +6132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogManager: {fileID: 1499883993}
   buttons: {fileID: 1125596726}
+  menuButton: {fileID: 1929833787}
   gameDirector: {fileID: 649845583}
   hintManager: {fileID: 336643757}
   outingEventManager: {fileID: 1727198031}
