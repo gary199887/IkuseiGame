@@ -29,6 +29,8 @@ public class TitleDirector : CommonFunctions
     [SerializeField] GameObject hintObj;
     [SerializeField] Text hintText;
 
+    [Range(0, 10)]
+    [SerializeField] float fadeRange; 
 
     // Start is called before the first frame update
     void Start()
@@ -57,7 +59,7 @@ public class TitleDirector : CommonFunctions
             titleAudioManager.playBGM();
 
             // タイトルキャラフェードイン（仮）
-            if (titleChara.transform.position.y < -2.57f) titleChara.transform.Translate(new Vector2(0, 1.0f * Time.deltaTime));
+            if (titleChara.transform.position.y < -fadeRange) titleChara.transform.Translate(new Vector2(0, 1.0f * Time.deltaTime));
         }
 
         if (buttonClicked) {

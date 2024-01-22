@@ -31,11 +31,12 @@ public class MenuManager : MonoBehaviour
 
     public void BackDeskTop()
     {
-        dialogManager.showDialog(new string[] { "ゲームがセーブされました" });
 #if UNITY_EDITOR                                        // environment check
         UnityEditor.EditorApplication.isPlaying = false;    // end game
 #else
                 Application.Quit();                                 // end game
 #endif
     }
+
+    
 }
