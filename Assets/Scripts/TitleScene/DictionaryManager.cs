@@ -7,7 +7,6 @@ public class DictionaryManager : MonoBehaviour
 {
     [SerializeField] SpriteRenderer[] endingImages;
     [SerializeField] public Sprite[] sprites;
-    [SerializeField] TitleDirector titleDirector;
     Bounds imgBounds;
     public EndingList endingList;
     // Start is called before the first frame update
