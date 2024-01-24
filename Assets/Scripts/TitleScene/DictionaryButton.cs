@@ -9,9 +9,4 @@ public class DictionaryButton : MonoBehaviour, MyButton
     public void onClicked() {
         titleDirector.showDictionary();
     }
-
-    public void onPointing()
-    {
-        transform.localScale.Set(transform.localScale.x * 1.2f, transform.localScale.y * 1.2f, transform.localScale.z);
-    }
 }
