@@ -42,11 +42,10 @@ public class PlayerController : MonoBehaviour
             
            //Debug.Log(clickedGameObject);   // print out in log
         }
-        
-        //もしマウスがクリックされず、ボタンの上に置かれたときには
     }
 
     void doButtonFunction() {
         button.onClicked();
     }
+
 }

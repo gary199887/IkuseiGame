@@ -31,9 +31,5 @@ public class SetAllButton : MonoBehaviour, MyButton
         dictionaryManager.Start();
     }
 
-    public void onPointing()
-    {
-
-
-    }
+ 
 }
