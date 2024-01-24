@@ -1,85 +1,55 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class CharaMotionManager : MonoBehaviour
 {
-    [SerializeField] GameObject charaImg;
+    [SerializeField] GameObject charaImg;   // キャラ画像
     int times = 0;
     Vector2 position;       // キャラ画像の元位置
     Vector2 target;         // 移動したい目標位置
     const float distance = 0.5f;    // 移動したい距離
     const float speed = 20.0f;      // 移動速度
-    bool moveX;                     // 移動するのはX軸か（falseならy軸（縦））
+    Vector2 direction;          // 移動方向ベクトル
 
 
     void Start()
     {
-        position = charaImg.transform.position;
+        position = charaImg.transform.position;     // キャラ画像の位置を代入
     }
     void Update()
     {
-        if (times != 0) {
-            if (moveX)  // 横
+        if (times != 0){
+            if (times > 4)  // 停止、元の位置に戻す
             {
-                int rightOrLeft = times % 2;
-                if (times > 4)
-                {
-                    charaImg.transform.position = position;
-                    times = 0;
-                    return;
-                }
-                switch (rightOrLeft)
-                {
-                    case 0:
-                        target = position + Vector2.left * distance;
-                        if (charaImg.transform.position.x > target.x)
-                            charaImg.transform.Translate(new Vector2(-speed * Time.deltaTime, 0));
-                        else
-                            times++;
-                        break;
-                    case 1:
-                        target = position + Vector2.right * distance;
-                        if (charaImg.transform.position.x < target.x)
-                            charaImg.transform.Translate(new Vector2(speed * Time.deltaTime, 0));
-                        else
-                            times++;
-                        break;
-                }
+                charaImg.transform.position = position;
+                times = 0;
+                return;
             }
-            else {      // 縦
-                int upOrDown = times % 2;
-                if (times > 4)
-                {
-                    charaImg.transform.position = position;
-                    times = 0;
-                    return;
-                }
-                switch (upOrDown)
-                {
-                    case 0:
-                        target = position + Vector2.down * distance;
-                        if (charaImg.transform.position.y > target.y)
-                            charaImg.transform.Translate(new Vector2(0, -speed * Time.deltaTime));
-                        else
-                            times++;
-                        break;
-                    case 1:
-                        target = position + Vector2.up * distance;
-                        if (charaImg.transform.position.y < target.y)
-                            charaImg.transform.Translate(new Vector2(0, speed * Time.deltaTime));
-                        else
-                            times++;
-                        break;
-                }
+
+            int plusOrMinus = times % 2;        // 移動方向の正負方向かtimesから判定
+            switch (plusOrMinus)
+            {
+                case 0:     // 正
+                    target = position + direction * distance;
+                    if (charaImg.transform.position.x <= target.x)      // xの値から動き続くかを判定
+                        charaImg.transform.Translate(direction * speed * Time.deltaTime);
+                    else    // 反対方向に変更or停止
+                        times++;
+                    break;
+                case 1:     // 負(反対方向)
+                    target = position - direction * distance;
+                    if (charaImg.transform.position.x >= target.x)
+                        charaImg.transform.Translate(-direction * speed * Time.deltaTime);
+                    else
+                        times++;
+                    break;
             }
         }
     }
 
-    public void moveChara() {
-        target = position + Vector2.right * distance;
-        moveX = Random.Range(0,2) == 0;
-        times++;
+    public void moveChara()
+    {
+        float angle = Random.Range(-89, 90) * Mathf.Deg2Rad;    // 角度を-89~89からランダム（ラジアンに変換）　　角度の指定はx軸が必ず正の値(>0)の角度を指定
+        direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)).normalized; // モーションの方向ベクトルに代入
+        times++;    // 動きを始める
     }
 }
