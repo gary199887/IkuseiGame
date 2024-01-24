@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.IO;
-using UnityEditor.SceneManagement;
+﻿using System.IO;
 using UnityEngine;
 
 public class SaveIO : MonoBehaviour

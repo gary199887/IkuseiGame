@@ -13,6 +13,7 @@ public class FixedEventManager : MonoBehaviour
     void Start()
     {
         route = -1;
+        currentSpriteId = -1;
     }
     public static void setFixedEvent(FixedEventList loadedList)
     {
