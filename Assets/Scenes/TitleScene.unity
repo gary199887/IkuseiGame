@@ -791,6 +791,7 @@ GameObject:
   - component: {fileID: 255141043}
   - component: {fileID: 255141045}
   - component: {fileID: 255141046}
+  - component: {fileID: 255141047}
   m_Layer: 0
   m_Name: TitleChara
   m_TagString: ButtonInTitleScene
@@ -923,6 +924,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titleDirector: {fileID: 1847344574}
+--- !u!114 &255141047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255141042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ffa13b9b131b34b9286908252fe805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOver: {fileID: 21300000, guid: 4703925fba94de148b678e21041a8772, type: 3}
+  isExit: {fileID: 21300000, guid: de9a1c971a426ca49a762f293ba911ad, type: 3}
 --- !u!1 &343342160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,6 +1286,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4318845051184711930, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b3ab492283ebb744cb327f556827f170, type: 3}
+    - target: {fileID: 4318845051184711930, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318845051184711930, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318845051184711930, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4940735873361977615, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 60
@@ -1297,6 +1328,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 406283660713909156, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 429139474}
+    - targetCorrespondingSourceObject: {fileID: 406283660713909156, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 429139476}
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
 --- !u!1 &429139470 stripped
 GameObject:
@@ -1355,6 +1389,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a1e465c360f0a6458bc8a40fb4f577c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &429139476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429139470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ffa13b9b131b34b9286908252fe805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOver: {fileID: 21300000, guid: 5ac1d53d88aa22c409c2abaa05a68548, type: 3}
+  isExit: {fileID: 21300000, guid: b3ab492283ebb744cb327f556827f170, type: 3}
 --- !u!1 &444240920
 GameObject:
   m_ObjectHideFlags: 0
@@ -2491,7 +2539,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2f84b94658f84624eaa08a07d5644b6f, type: 3}
   - {fileID: 21300000, guid: 8dc2ff278e460ff478d6169fcfcf0f25, type: 3}
   - {fileID: 21300000, guid: 49a9cad91135c954c8bede612e19e0c8, type: 3}
-  titleDirector: {fileID: 0}
   endingList:
     endings: []
 --- !u!4 &887948634
@@ -2650,6 +2697,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60b3df9134e1d345ad9813abeb66f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &985556523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985556516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ffa13b9b131b34b9286908252fe805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOver: {fileID: 21300000, guid: 5ac1d53d88aa22c409c2abaa05a68548, type: 3}
+  isExit: {fileID: 21300000, guid: b3ab492283ebb744cb327f556827f170, type: 3}
 --- !u!1 &1033963789
 GameObject:
   m_ObjectHideFlags: 0
@@ -6920,6 +6981,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4318845051184711930, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b3ab492283ebb744cb327f556827f170, type: 3}
+    - target: {fileID: 4318845051184711930, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318845051184711930, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318845051184711930, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4940735873361977615, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -318.57
@@ -6946,6 +7023,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 406283660713909156, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 985556521}
+    - targetCorrespondingSourceObject: {fileID: 406283660713909156, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 985556523}
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
 --- !u!1001 &8681396769036571660
 PrefabInstance:
@@ -7007,6 +7087,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4318845051184711930, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b3ab492283ebb744cb327f556827f170, type: 3}
+    - target: {fileID: 4318845051184711930, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318845051184711930, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318845051184711930, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4940735873361977615, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -690
@@ -7029,6 +7125,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 406283660713909156, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8681396769036571665}
+    - targetCorrespondingSourceObject: {fileID: 406283660713909156, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8681396769036571667}
   m_SourcePrefab: {fileID: 100100000, guid: 5a2d21c1250da72459e73e897bd57aa3, type: 3}
 --- !u!1 &8681396769036571661 stripped
 GameObject:
@@ -7087,3 +7186,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ca0d486654a0294d8b515941a22b75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8681396769036571667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8681396769036571661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ffa13b9b131b34b9286908252fe805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOver: {fileID: 21300000, guid: 5ac1d53d88aa22c409c2abaa05a68548, type: 3}
+  isExit: {fileID: 21300000, guid: b3ab492283ebb744cb327f556827f170, type: 3}
