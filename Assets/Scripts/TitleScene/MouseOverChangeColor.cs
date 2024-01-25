@@ -2,26 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IsMouseOver : MonoBehaviour
+public class MouseOverChangeColor : MonoBehaviour
 {
     [SerializeField]
-    Sprite isOver;
+    Color isOver;
     [SerializeField]
-    Sprite isExit;
+    Color isExit;
 
     SpriteRenderer spriteRenderer;
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>(); 
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnMouseOver()
     {
-        spriteRenderer.sprite = isOver;
+        spriteRenderer.color = isOver;
     }
 
     private void OnMouseExit()
     {
-        spriteRenderer.sprite = isExit;
+        spriteRenderer.color = isExit;
     }
 }
